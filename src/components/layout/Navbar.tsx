@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowUpRight, Sparkles, Terminal, ExternalLink } from 'lucide-react';
-import { StatusPill } from '../ui/StatusPill';
-import { MagneticButton } from '../ui/MagneticButton';
+import { Menu, X, ArrowUpRight, Sparkles, ExternalLink } from 'lucide-react';
 import { ThemeToggle } from '../ui/ThemeToggle';
+import { MagneticButton } from '../ui/MagneticButton';
 import { cn } from '../../lib/utils';
 
 interface NavbarProps {
@@ -23,11 +22,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
   }, []);
 
   const navLinks = [
-    { name: "SaaS Prototypes", href: "#ventures" },
-    { name: "Stack & 3D", href: "#tech-engine" },
-    { name: "Live Delivery", href: "#case-studies" },
-    { name: "Estimator", href: "#calculator" },
-    { name: "Journey", href: "#track-record" },
+    { name: "About", href: "#about" },
+    { name: "Virtual HQ", href: "#virtual-hq" },
+    { name: "SaaS Ecosystem", href: "#saas-ecosystem" },
+    { name: "Services", href: "#services" },
+    { name: "Contact", href: "#contact" },
   ];
 
   return (
@@ -40,7 +39,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
             : "bg-transparent border border-transparent"
         )}
       >
-        {/* Brand Emblem */}
+        {/* Brand Logo */}
         <a href="#" className="flex items-center gap-3 group focus:outline-none">
           <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500/20 to-slate-200 dark:from-gold-500/20 dark:to-obsidian-800 border border-amber-500/40 dark:border-gold-500/30 group-hover:border-gold-400 group-hover:shadow-[0_0_15px_rgba(245,158,11,0.4)] transition-all duration-300">
             <span className="font-display font-bold text-lg text-amber-600 dark:text-gold-400 group-hover:scale-105 transition-transform">
@@ -50,10 +49,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
           </div>
           <div className="flex flex-col">
             <span className="font-display font-bold text-sm tracking-wide text-slate-900 dark:text-white group-hover:text-gold-500 dark:group-hover:text-gold-400 transition-colors">
-              ADZALAN
+              Adzalan Portfolio
             </span>
             <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400 tracking-wider uppercase">
-              Solo SaaS Builder
+              Virtual HQ & SaaS
             </span>
           </div>
         </a>
@@ -64,7 +63,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
             <a
               key={link.name}
               href={link.href}
-              className="px-3 py-1.5 text-xs lg:text-sm text-slate-600 hover:text-slate-950 dark:text-slate-300 dark:hover:text-white rounded-full hover:bg-black/5 dark:hover:bg-white/[0.06] transition-colors font-medium tracking-wide"
+              className="px-3.5 py-1.5 text-xs lg:text-sm text-slate-600 hover:text-slate-950 dark:text-slate-300 dark:hover:text-white rounded-full hover:bg-black/5 dark:hover:bg-white/[0.06] transition-colors font-medium tracking-wide"
             >
               {link.name}
             </a>
@@ -80,10 +79,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
           </a>
         </nav>
 
-        {/* Right CTA, Theme Toggle & Status */}
+        {/* Right CTA & Theme Toggle */}
         <div className="hidden lg:flex items-center gap-3">
           <ThemeToggle />
-          <StatusPill statusText="🟢 Stages 1–5 Active" />
           <MagneticButton
             variant="primary"
             size="sm"
@@ -91,7 +89,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
             className="flex items-center gap-1.5"
           >
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Connect</span>
+            <span>Get in Touch</span>
             <ArrowUpRight className="w-3.5 h-3.5 opacity-80" />
           </MagneticButton>
         </div>
@@ -101,75 +99,57 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
           <ThemeToggle />
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle Navigation Menu"
-            className="p-2 rounded-xl glass-pill text-slate-700 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white focus:outline-none"
+            className="p-2 rounded-lg bg-slate-200/60 dark:bg-obsidian-850 border border-slate-300/60 dark:border-white/10 text-slate-800 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white transition-colors cursor-pointer"
+            aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Drawer */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -10, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10, scale: 0.98 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden mt-2 mx-auto max-w-lg rounded-2xl glass-panel p-6 shadow-2xl border border-black/10 dark:border-white/10 bg-white/95 dark:bg-obsidian-900/95"
+            className="md:hidden mt-2 mx-auto max-w-lg rounded-2xl glass-panel p-5 border border-black/10 dark:border-white/10 bg-white/95 dark:bg-obsidian-900/95 shadow-xl backdrop-blur-2xl"
           >
-            <div className="mb-4 pb-4 border-b border-black/10 dark:border-white/10 flex items-center justify-between">
-              <StatusPill statusText="🟢 Stages 1–5 Live" />
-              <div className="flex items-center gap-1 text-[11px] font-mono text-slate-500 dark:text-slate-400">
-                <Terminal className="w-3.5 h-3.5 text-gold-500 dark:text-gold-400" />
-                <span>Pahang (GMT+8)</span>
-              </div>
-            </div>
-
-            <nav className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="px-4 py-3 rounded-xl text-slate-800 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/[0.08] transition-colors text-sm font-medium flex items-center justify-between"
+                  className="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-black/5 dark:hover:bg-white/[0.06] hover:text-amber-600 dark:hover:text-gold-400 transition-all"
                 >
-                  <span>{link.name}</span>
-                  <ArrowUpRight className="w-4 h-4 text-slate-400 dark:text-slate-500" />
+                  {link.name}
                 </a>
               ))}
               <a
                 href="https://app.adzalan.com"
                 target="_blank"
                 rel="noreferrer"
-                className="px-4 py-3 rounded-xl text-amber-700 dark:text-gold-400 hover:bg-amber-500/10 transition-colors text-sm font-semibold flex items-center justify-between"
+                className="px-4 py-2.5 rounded-xl text-sm font-semibold text-amber-700 dark:text-gold-400 hover:bg-amber-500/10 flex items-center justify-between"
               >
-                <span>Launch app.adzalan.com (Virtual HQ)</span>
+                <span>Enter Virtual HQ (app.adzalan.com)</span>
                 <ExternalLink className="w-4 h-4" />
               </a>
-              <a
-                href="https://umbikasih.com"
-                target="_blank"
-                rel="noreferrer"
-                className="px-4 py-3 rounded-xl text-emerald-700 dark:text-emerald-400 hover:bg-emerald-500/10 transition-colors text-sm font-semibold flex items-center justify-between"
-              >
-                <span>Visit umbikasih.com (Retreat)</span>
-                <ExternalLink className="w-4 h-4" />
-              </a>
-            </nav>
 
-            <div className="mt-6 pt-4 border-t border-black/10 dark:border-white/10">
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenBooking();
-                }}
-                className="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-gold-500 to-amber-600 text-obsidian-950 font-bold text-sm tracking-wide shadow-gold-glow flex items-center justify-center gap-2 cursor-pointer"
-              >
-                <Sparkles className="w-4 h-4" />
-                <span>Get in Touch / Discuss Project</span>
-              </button>
+              <div className="pt-3 mt-2 border-t border-black/10 dark:border-white/10">
+                <button
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    onOpenBooking();
+                  }}
+                  className="w-full py-3 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 dark:from-gold-500 dark:to-gold-600 text-white dark:text-obsidian-950 font-semibold text-sm shadow-md flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <Sparkles className="w-4 h-4" />
+                  <span>Get in Touch</span>
+                </button>
+              </div>
             </div>
           </motion.div>
         )}

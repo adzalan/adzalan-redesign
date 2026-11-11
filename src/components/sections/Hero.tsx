@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { 
-  Rocket, 
   ArrowRight, 
   Sparkles, 
-  Terminal, 
-  Layers, 
-  CheckCircle2,
-  Clock,
+  Clock, 
   ExternalLink,
-  Laptop
+  Laptop,
+  Box,
+  Layers,
+  ArrowUpRight,
+  ShieldCheck
 } from 'lucide-react';
 import { FOUNDER_INFO } from '../../data/portfolioData';
 import { MagneticButton } from '../ui/MagneticButton';
-import { MetricCounter } from '../ui/MetricCounter';
 import { LiquidCard } from '../ui/LiquidCard';
 
 interface HeroProps {
@@ -42,7 +41,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
   }, []);
 
   return (
-    <section className="relative min-h-[92vh] pt-32 sm:pt-40 pb-20 flex flex-col justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section className="relative min-h-[88vh] pt-32 sm:pt-40 pb-16 flex flex-col justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
       <div className="max-w-7xl mx-auto w-full">
         {/* Top Badges Row */}
         <motion.div
@@ -54,210 +53,197 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
           {/* Location & Time Indicator */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-xs font-mono text-slate-700 dark:text-slate-300">
             <span className="w-2 h-2 rounded-full bg-amber-500 dark:bg-gold-400 animate-pulse" />
-            <span>Temerloh & Janda Baik, MY</span>
+            <span>Temerloh, Pahang, MY</span>
             <span className="text-slate-400 dark:text-slate-600">|</span>
             <Clock className="w-3.5 h-3.5 text-amber-600 dark:text-gold-400" />
             <span className="text-amber-700 dark:text-gold-300 font-semibold">{localTime || '12:00:00 PM'} (GMT+8)</span>
           </div>
 
-          {/* Verification Badge */}
+          {/* Ecosystem Badge */}
           <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-500/10 dark:bg-gold-500/10 border border-amber-500/30 dark:border-gold-500/20 text-amber-700 dark:text-gold-400 text-xs font-medium">
-            <Laptop className="w-3.5 h-3.5" />
-            <span>Building SaaS in Public</span>
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Adzalan Ecosystem · Virtual HQ & SaaS Solutions</span>
           </div>
         </motion.div>
 
         {/* Main Hero Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
           {/* Left Column: Headline & Direct Call-to-Action */}
           <div className="lg:col-span-7 flex flex-col">
             <motion.h1
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-display font-extrabold text-4xl sm:text-6xl lg:text-7xl tracking-tight leading-[1.08] text-slate-950 dark:text-white"
+              className="font-display font-extrabold text-4xl sm:text-6xl lg:text-7xl tracking-tight leading-[1.1] text-slate-950 dark:text-white"
             >
-              Building <span className="text-gradient-gold">SaaS products & 3D workspaces</span> from the ground up.
+              Engineering <span className="text-gradient-gold">Digital Foundations</span> for the Modern Enterprise.
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="mt-6 text-base sm:text-xl text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed font-normal"
+              className="mt-6 text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed"
             >
-              Hi, I'm <strong className="text-slate-950 dark:text-white font-semibold">{FOUNDER_INFO.name}</strong>. I'm a solo software developer based in Pahang, Malaysia. I build real-world web platforms like <a href="https://umbikasih.com" target="_blank" rel="noreferrer" className="text-emerald-600 dark:text-emerald-400 font-semibold underline decoration-emerald-500/40 hover:text-emerald-500">umbikasih.com</a> and engineer experimental virtual environments like <a href="https://app.adzalan.com" target="_blank" rel="noreferrer" className="text-amber-700 dark:text-gold-400 font-semibold underline decoration-gold-500/40 hover:text-gold-300">app.adzalan.com</a>.
+              From 3D interactive virtual headquarters and multi-tenant SaaS ecosystems to tailored software development and AI workflows. Built with modern web engineering and craft by <strong className="text-slate-900 dark:text-white font-semibold">Adzalan Yanggang</strong>.
             </motion.p>
 
-            {/* CTAs Group */}
+            {/* CTAs matching adzalan.com */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="mt-9 flex flex-wrap items-center gap-4"
+              className="mt-8 flex flex-wrap items-center gap-4"
             >
-              <a href="https://app.adzalan.com" target="_blank" rel="noreferrer" className="w-full sm:w-auto">
+              <a
+                href="https://app.adzalan.com"
+                target="_blank"
+                rel="noreferrer"
+                className="w-full sm:w-auto"
+              >
                 <MagneticButton
                   variant="primary"
                   size="lg"
-                  className="w-full flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto flex items-center justify-center gap-2 group shadow-lg shadow-amber-500/15 dark:shadow-gold-500/15"
                 >
-                  <Sparkles className="w-4 h-4" />
-                  <span>Launch app.adzalan.com (3D HQ)</span>
-                  <ExternalLink className="w-4 h-4 ml-1" />
+                  <Box className="w-4 h-4 text-white dark:text-obsidian-950" />
+                  <span>Enter Virtual HQ</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </MagneticButton>
               </a>
 
-              <a href="https://umbikasih.com" target="_blank" rel="noreferrer" className="w-full sm:w-auto">
+              <a
+                href="#virtual-hq"
+                className="w-full sm:w-auto"
+              >
                 <MagneticButton
                   variant="secondary"
                   size="lg"
-                  className="w-full flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto flex items-center justify-center gap-2"
                 >
-                  <Rocket className="w-4 h-4 text-emerald-500" />
-                  <span>View umbikasih.com</span>
-                  <ExternalLink className="w-3.5 h-3.5 opacity-70" />
+                  <Layers className="w-4 h-4 text-amber-600 dark:text-gold-400" />
+                  <span>Explore Platform</span>
                 </MagneticButton>
               </a>
 
-              <a href="#ventures" className="w-full sm:w-auto">
-                <MagneticButton
-                  variant="glass"
-                  size="lg"
-                  className="w-full flex items-center justify-center gap-2"
-                >
-                  <Layers className="w-4 h-4 text-slate-500 dark:text-slate-400" />
-                  <span>Explore SaaS Roadmap</span>
-                  <ArrowRight className="w-4 h-4 opacity-70" />
-                </MagneticButton>
-              </a>
+              <button
+                onClick={onOpenBooking}
+                className="w-full sm:w-auto px-6 py-3.5 rounded-full text-sm font-medium text-slate-700 hover:text-slate-950 dark:text-slate-300 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/[0.06] transition-colors cursor-pointer flex items-center justify-center gap-1.5"
+              >
+                <span>Get in Touch</span>
+                <ArrowUpRight className="w-4 h-4 opacity-70" />
+              </button>
             </motion.div>
 
-            {/* Micro Trust Bullets */}
+            {/* Live Trust Metrics matching actual platforms */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.45 }}
-              className="mt-8 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs text-slate-600 dark:text-slate-400 font-mono"
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="mt-12 pt-8 border-t border-black/5 dark:border-white/10 grid grid-cols-2 sm:grid-cols-3 gap-6"
             >
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                <span>Real Live Platform: umbikasih.com</span>
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <span className="font-display font-bold text-lg text-slate-900 dark:text-white">app.adzalan.com</span>
+                </div>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Virtual 3D HQ Prototype</p>
               </div>
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                <span>Live 3D & Workspace Prototype: app.adzalan.com</span>
+
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                  <span className="font-display font-bold text-lg text-slate-900 dark:text-white">umbikasih.com</span>
+                </div>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Live Hospitality Platform</p>
               </div>
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                <span>Zero Made-Up Metrics / 100% Honest Building</span>
+
+              <div className="col-span-2 sm:col-span-1">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-amber-500" />
+                  <span className="font-display font-bold text-lg text-slate-900 dark:text-white">Adzalan Core</span>
+                </div>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Institutional SaaS Suite</p>
               </div>
             </motion.div>
           </div>
 
-          {/* Right Column: Interactive Founder Terminal & Status Deck */}
+          {/* Right Column: Interactive Platform Preview Card */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.25 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
             className="lg:col-span-5"
           >
-            <LiquidCard tilt={true} className="p-6 sm:p-8 border-slate-200 dark:border-gold-500/25 bg-white/90 dark:bg-obsidian-900/90 shadow-2xl">
-              {/* Terminal Window Header */}
-              <div className="flex items-center justify-between pb-4 border-b border-black/10 dark:border-white/10 mb-6">
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-rose-500/80" />
-                  <div className="w-3 h-3 rounded-full bg-amber-500/80" />
-                  <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
-                  <span className="ml-2 font-mono text-[11px] text-slate-500 dark:text-slate-400">
-                    adzalan_workspace.tsx — Live
-                  </span>
-                </div>
-                <div className="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-                  STAGES 1–5 ACTIVE
-                </div>
-              </div>
-
-              {/* Code / Command Prompt Simulation */}
-              <div className="font-mono text-xs text-slate-700 dark:text-slate-300 space-y-3">
-                <div className="text-slate-500 flex items-center gap-2">
-                  <Terminal className="w-3.5 h-3.5 text-amber-600 dark:text-gold-400" />
-                  <span>curl -s https://app.adzalan.com/api/status</span>
-                </div>
-                <div className="p-3 rounded-xl bg-slate-50 dark:bg-obsidian-950/80 border border-black/5 dark:border-white/5 space-y-1.5">
-                  <p className="text-amber-800 dark:text-gold-300 font-semibold">Adzalan Virtual Headquarters</p>
-                  <p className="text-slate-500 dark:text-slate-400 text-[11px]">3D Procedural Lobby + Clerk Auth + Multi-Tenant Workspaces</p>
-                  <p className="text-emerald-600 dark:text-emerald-400 text-[11px]">🟢 Status: Stages 1–5 Live Foundation</p>
-                </div>
-
-                <div className="pt-2 text-slate-500 flex items-center gap-2">
-                  <Layers className="w-3.5 h-3.5 text-sky-600 dark:text-cyan-400" />
-                  <span>cat /proc/real_world_projects</span>
-                </div>
-                <div className="grid grid-cols-2 gap-2 text-[11px]">
-                  <a
-                    href="https://umbikasih.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="p-2.5 rounded-lg bg-black/[0.02] dark:bg-white/[0.03] border border-black/5 dark:border-white/5 hover:border-emerald-500/40 transition-colors block"
-                  >
-                    <span className="text-emerald-600 dark:text-emerald-400 block text-[9px] uppercase font-bold">Live Client</span>
-                    <span className="text-slate-800 dark:text-slate-200 font-medium">umbikasih.com ↗</span>
-                  </a>
-                  <a
-                    href="https://app.adzalan.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="p-2.5 rounded-lg bg-black/[0.02] dark:bg-white/[0.03] border border-black/5 dark:border-white/5 hover:border-gold-500/40 transition-colors block"
-                  >
-                    <span className="text-amber-700 dark:text-gold-400 block text-[9px] uppercase font-bold">Flagship SaaS</span>
-                    <span className="text-slate-800 dark:text-slate-200 font-medium">app.adzalan.com ↗</span>
-                  </a>
-                </div>
-
-                <div className="p-3 rounded-xl bg-gradient-to-r from-amber-500/10 to-amber-600/10 dark:from-gold-500/10 dark:to-amber-600/10 border border-amber-500/30 dark:border-gold-500/20 mt-4 flex items-center justify-between">
-                  <div>
-                    <span className="text-[10px] font-mono uppercase text-amber-700 dark:text-gold-400 block font-semibold">
-                      Adzalan Core Roadmap
-                    </span>
-                    <span className="text-xs text-slate-700 dark:text-slate-200 font-sans">
-                      MosqueCore, TahfizCore & EduCore in planning
-                    </span>
+            <LiquidCard
+              glowColor="rgba(245, 158, 11, 0.2)"
+              className="p-6 sm:p-8 rounded-3xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-obsidian-900/80 backdrop-blur-2xl shadow-2xl relative overflow-hidden group"
+            >
+              {/* Card Header */}
+              <div className="flex items-center justify-between pb-5 border-b border-black/5 dark:border-white/10">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-amber-500/10 dark:bg-gold-500/10 border border-amber-500/30 dark:border-gold-500/30 flex items-center justify-center text-amber-600 dark:text-gold-400">
+                    <Box className="w-5 h-5" />
                   </div>
-                  <button
-                    onClick={onOpenBooking}
-                    className="px-3 py-1.5 rounded-lg bg-gold-500 hover:bg-gold-400 text-obsidian-950 font-bold text-xs transition-colors cursor-pointer"
-                  >
-                    Get in Touch
-                  </button>
+                  <div>
+                    <h3 className="font-display font-bold text-slate-950 dark:text-white text-base">Virtual HQ Console</h3>
+                    <p className="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
+                      Live System Ready
+                    </p>
+                  </div>
+                </div>
+                <span className="text-[11px] font-mono px-2.5 py-1 rounded-full bg-black/5 dark:bg-white/10 text-slate-600 dark:text-slate-300">
+                  WebGL 3D
+                </span>
+              </div>
+
+              {/* Simulated 3D Environment Preview */}
+              <div className="my-6 rounded-2xl bg-gradient-to-b from-slate-950 to-obsidian-900 p-5 border border-white/10 relative overflow-hidden text-white">
+                <div className="absolute top-0 right-0 w-44 h-44 bg-amber-500/15 rounded-full blur-3xl pointer-events-none" />
+                
+                <div className="flex items-center justify-between text-xs font-mono text-slate-400 mb-3">
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-amber-400" />
+                    Procedural Lobby Engine
+                  </span>
+                  <span className="text-gold-400">60 FPS</span>
+                </div>
+
+                <div className="space-y-2 text-xs">
+                  <div className="p-3 rounded-xl bg-white/5 border border-white/5 flex items-center justify-between">
+                    <span className="text-slate-300 font-sans">Navigable 3D Reception Hall</span>
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">Active</span>
+                  </div>
+                  <div className="p-3 rounded-xl bg-white/5 border border-white/5 flex items-center justify-between">
+                    <span className="text-slate-300 font-sans">AI Receptionist Console</span>
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-500/20 text-amber-300">Scripted Beta</span>
+                  </div>
+                  <div className="p-3 rounded-xl bg-white/5 border border-white/5 flex items-center justify-between">
+                    <span className="text-slate-300 font-sans">Multi-Tenant Workspaces (Clerk)</span>
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-sky-500/20 text-sky-300">RLS Isolated</span>
+                  </div>
+                </div>
+
+                <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-slate-400">
+                  <span>Zero Heavy Asset Downloads</span>
+                  <span className="text-gold-400 font-mono">app.adzalan.com</span>
                 </div>
               </div>
+
+              {/* Card Footer Call to Action */}
+              <a
+                href="https://app.adzalan.com"
+                target="_blank"
+                rel="noreferrer"
+                className="w-full py-3 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-obsidian-950 font-semibold text-xs transition-all flex items-center justify-center gap-2 group-hover:shadow-md cursor-pointer"
+              >
+                <span>Launch Virtual Headquarters in Browser</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
             </LiquidCard>
           </motion.div>
         </div>
-
-        {/* Live Metrics Counter Strip */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.4 }}
-          className="mt-16 sm:mt-24 pt-10 border-t border-black/10 dark:border-white/10"
-        >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
-            {FOUNDER_INFO.metrics.map((item, idx) => (
-              <div
-                key={idx}
-                className="group relative p-4 sm:p-6 rounded-2xl glass-panel-interactive border-black/5 dark:border-white/5 hover:border-amber-500/30 dark:hover:border-gold-500/30 transition-all duration-300"
-              >
-                <MetricCounter
-                  value={item.value}
-                  label={item.label}
-                  subtext={item.subtext}
-                />
-              </div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );

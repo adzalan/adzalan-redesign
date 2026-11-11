@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Send, Sparkles, CheckCircle2, Calendar, Clock, Lock } from 'lucide-react';
+import { X, Send, Sparkles, CheckCircle2, MessageSquare, Mail, Phone } from 'lucide-react';
 import confetti from 'canvas-confetti';
-import { FOUNDER_INFO } from '../../data/portfolioData';
 
 interface AdvisoryModalProps {
   isOpen: boolean;
@@ -20,14 +19,13 @@ export const AdvisoryModal: React.FC<AdvisoryModalProps> = ({
 }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [projectType, setProjectType] = useState(preselectedScope?.name || 'Full SaaS MVP Sprint');
-  const [budget, setBudget] = useState('$5k - $10k');
-  const [notes, setNotes] = useState('');
+  const [inquiryType, setInquiryType] = useState(preselectedScope?.name || 'Custom Web Application / MVP');
+  const [message, setMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
     if (preselectedScope) {
-      setProjectType(preselectedScope.name);
+      setInquiryType(preselectedScope.name);
     }
   }, [preselectedScope]);
 
@@ -49,16 +47,15 @@ export const AdvisoryModal: React.FC<AdvisoryModalProps> = ({
     e.preventDefault();
     setSubmitted(true);
 
-    // Launch celebratory confetti
     try {
       confetti({
-        particleCount: 80,
-        spread: 70,
+        particleCount: 60,
+        spread: 65,
         origin: { y: 0.6 },
-        colors: ['#F59E0B', '#FBBF24', '#FFFFFF', '#38BDF8'],
+        colors: ['#F59E0B', '#FBBF24', '#FFFFFF', '#10B981'],
       });
     } catch (err) {
-      // Confetti fallback
+      // fallback
     }
   };
 
@@ -66,7 +63,7 @@ export const AdvisoryModal: React.FC<AdvisoryModalProps> = ({
     setSubmitted(false);
     setName('');
     setEmail('');
-    setNotes('');
+    setMessage('');
     onClose();
   };
 
@@ -80,7 +77,7 @@ export const AdvisoryModal: React.FC<AdvisoryModalProps> = ({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-obsidian-950/85 backdrop-blur-md"
+            className="fixed inset-0 bg-obsidian-950/80 backdrop-blur-md"
           />
 
           {/* Modal Card */}
@@ -89,150 +86,131 @@ export const AdvisoryModal: React.FC<AdvisoryModalProps> = ({
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: "spring", stiffness: 350, damping: 25 }}
-            className="relative w-full max-w-xl rounded-2xl glass-panel p-6 sm:p-8 border border-amber-500/30 dark:border-gold-500/30 bg-white dark:bg-obsidian-900 shadow-2xl z-10 my-8"
+            className="relative w-full max-w-xl rounded-3xl glass-panel p-6 sm:p-8 border border-amber-500/30 dark:border-gold-500/30 bg-white dark:bg-obsidian-900 shadow-2xl z-10 my-8"
           >
             {/* Close Button */}
             <button
               onClick={onClose}
-              aria-label="Close Advisory Modal"
+              aria-label="Close Modal"
               className="absolute top-5 right-5 p-2 rounded-xl text-slate-500 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white glass-pill transition-colors cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
 
-            {!submitted ? (
-              <>
-                <div className="mb-6">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-amber-500/10 dark:bg-gold-500/10 text-amber-700 dark:text-gold-400 border border-amber-500/20 dark:border-gold-500/20 mb-2">
+            {submitted ? (
+              <div className="py-8 text-center flex flex-col items-center">
+                <div className="w-14 h-14 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-500 mb-4">
+                  <CheckCircle2 className="w-8 h-8" />
+                </div>
+                <h3 className="font-display font-bold text-2xl text-slate-950 dark:text-white">
+                  Message Dispatched!
+                </h3>
+                <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 max-w-md">
+                  Thank you, <strong>{name}</strong>. Your inquiry regarding <em>{inquiryType}</em> has been submitted. I will follow up at <strong>{email}</strong> promptly.
+                </p>
+                <div className="mt-8 flex gap-3">
+                  <button
+                    onClick={handleReset}
+                    className="px-6 py-2.5 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-white font-semibold text-xs shadow-md cursor-pointer"
+                  >
+                    Close Window
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div>
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium bg-amber-500/10 dark:bg-gold-500/10 text-amber-700 dark:text-gold-400 border border-amber-500/20 dark:border-gold-500/20">
                     <Sparkles className="w-3.5 h-3.5" />
-                    <span>Direct Builder Connection</span>
-                  </div>
-                  <h3 className="font-display font-bold text-2xl sm:text-3xl text-slate-950 dark:text-white">
-                    Connect with Adzalan
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1">
-                    Have a project in mind, want to explore the 3D Virtual HQ, or collaborate on a new SaaS tool? Send a note directly below.
-                  </p>
+                    <span>Initiate Contact</span>
+                  </span>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <h3 className="font-display font-bold text-2xl text-slate-950 dark:text-white">
+                  Connect with Adzalan
+                </h3>
+                <p className="mt-1 text-xs text-slate-600 dark:text-slate-400">
+                  Discuss a custom web project, micro-SaaS architecture, or explore collaboration.
+                </p>
+
+                <form onSubmit={handleSubmit} className="mt-6 space-y-4">
                   <div>
-                    <label className="block text-xs font-mono uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
-                      Your Name *
+                    <label className="block text-xs font-mono text-slate-700 dark:text-slate-300 mb-1">
+                      Your Name
                     </label>
                     <input
                       type="text"
                       required
-                      placeholder="Your name"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-obsidian-950/80 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-amber-500 dark:focus:border-gold-500/80 transition-colors text-sm"
+                      placeholder="e.g. Faiz Azman"
+                      className="w-full px-4 py-2.5 rounded-xl bg-black/[0.03] dark:bg-white/[0.05] border border-black/10 dark:border-white/10 text-slate-900 dark:text-white text-xs placeholder:text-slate-400 focus:outline-none focus:border-amber-500"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-mono uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
-                      Your Email *
+                    <label className="block text-xs font-mono text-slate-700 dark:text-slate-300 mb-1">
+                      Email Address
                     </label>
                     <input
                       type="email"
                       required
-                      placeholder="you@domain.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-obsidian-950/80 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-amber-500 dark:focus:border-gold-500/80 transition-colors text-sm"
+                      placeholder="e.g. faiz@example.com"
+                      className="w-full px-4 py-2.5 rounded-xl bg-black/[0.03] dark:bg-white/[0.05] border border-black/10 dark:border-white/10 text-slate-900 dark:text-white text-xs placeholder:text-slate-400 focus:outline-none focus:border-amber-500"
                     />
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-mono uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
-                        Topic of Interest
-                      </label>
-                      <select
-                        value={projectType}
-                        onChange={(e) => setProjectType(e.target.value)}
-                        className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-obsidian-950/80 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white focus:outline-none focus:border-amber-500 dark:focus:border-gold-500/80 transition-colors text-sm"
-                      >
-                        <option value="Custom Web Platform (like umbikasih.com)">Web Platform (like umbikasih.com)</option>
-                        <option value="SaaS Prototype Sprint (like app.adzalan.com)">SaaS Prototype (like app.adzalan.com)</option>
-                        <option value="Experimental 3D Web Experience">3D Web Experience</option>
-                        <option value="SaaS Co-Building & Collaboration">SaaS Co-Building</option>
-                        <option value="General Conversation">General Conversation</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-mono uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
-                        Expected Scope / Budget
-                      </label>
-                      <select
-                        value={budget}
-                        onChange={(e) => setBudget(e.target.value)}
-                        className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-obsidian-950/80 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white focus:outline-none focus:border-amber-500 dark:focus:border-gold-500/80 transition-colors text-sm"
-                      >
-                        <option value="Under $2,000">Under $2,000</option>
-                        <option value="$2,000 - $3,500">$2,000 - $3,500</option>
-                        <option value="$3,500 - $5,000">$3,500 - $5,000</option>
-                        <option value="Exploring & Collaborating">Exploring & Collaborating</option>
-                      </select>
-                    </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-mono uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
-                      Your Message or Idea (Optional)
+                    <label className="block text-xs font-mono text-slate-700 dark:text-slate-300 mb-1">
+                      Inquiry Focus
+                    </label>
+                    <select
+                      value={inquiryType}
+                      onChange={(e) => setInquiryType(e.target.value)}
+                      className="w-full px-4 py-2.5 rounded-xl bg-black/[0.03] dark:bg-white/[0.05] border border-black/10 dark:border-white/10 text-slate-900 dark:text-white text-xs focus:outline-none focus:border-amber-500"
+                    >
+                      <option value="Custom Web Application / MVP" className="text-black dark:text-white bg-white dark:bg-obsidian-900">
+                        Custom Web Application / MVP
+                      </option>
+                      <option value="Virtual Headquarters & 3D WebGL" className="text-black dark:text-white bg-white dark:bg-obsidian-900">
+                        Virtual Headquarters & 3D WebGL (app.adzalan.com)
+                      </option>
+                      <option value="Hospitality & Retreat Web Platform" className="text-black dark:text-white bg-white dark:bg-obsidian-900">
+                        Hospitality & Retreat Web Platform (like umbikasih.com)
+                      </option>
+                      <option value="Institutional & Core SaaS Suite" className="text-black dark:text-white bg-white dark:bg-obsidian-900">
+                        Institutional & Core SaaS Suite (MosqueCore, TahfizCore)
+                      </option>
+                      <option value="General Consultation & Advisory" className="text-black dark:text-white bg-white dark:bg-obsidian-900">
+                        General Consultation & Advisory
+                      </option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-mono text-slate-700 dark:text-slate-300 mb-1">
+                      Project Notes / Message
                     </label>
                     <textarea
                       rows={3}
-                      placeholder="Tell me what you're working on or what you'd like to build..."
-                      value={notes}
-                      onChange={(e) => setNotes(e.target.value)}
-                      className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-obsidian-950/80 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-amber-500 dark:focus:border-gold-500/80 transition-colors text-sm"
+                      required
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                      placeholder="Briefly describe your objectives or questions..."
+                      className="w-full px-4 py-2.5 rounded-xl bg-black/[0.03] dark:bg-white/[0.05] border border-black/10 dark:border-white/10 text-slate-900 dark:text-white text-xs placeholder:text-slate-400 focus:outline-none focus:border-amber-500 resize-none"
                     />
                   </div>
 
-                  <div className="pt-2">
-                    <button
-                      type="submit"
-                      className="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-gold-500 via-amber-500 to-gold-600 text-obsidian-950 font-bold text-sm tracking-wide shadow-gold-glow hover:shadow-[0_0_30px_rgba(245,158,11,0.5)] transition-all cursor-pointer flex items-center justify-center gap-2"
-                    >
-                      <Send className="w-4 h-4" />
-                      <span>Send Direct Message</span>
-                    </button>
-                  </div>
-
-                  <div className="flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-slate-400 pt-1">
-                    <span className="flex items-center gap-1">
-                      <Lock className="w-3 h-3 text-amber-600 dark:text-gold-400" />
-                      <span>Direct to Adzalan</span>
-                    </span>
-                    <span>Usually replies within 24 hours</span>
-                  </div>
+                  <button
+                    type="submit"
+                    className="w-full py-3 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 dark:from-gold-500 dark:to-gold-600 text-white dark:text-obsidian-950 font-semibold text-xs shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer mt-2"
+                  >
+                    <span>Send Inquiry</span>
+                    <Send className="w-3.5 h-3.5" />
+                  </button>
                 </form>
-              </>
-            ) : (
-              /* Success Confirmation State */
-              <div className="text-center py-8 space-y-4">
-                <div className="w-16 h-16 rounded-full bg-emerald-500/20 border-2 border-emerald-400 text-emerald-400 flex items-center justify-center mx-auto shadow-[0_0_25px_#10B981]">
-                  <CheckCircle2 className="w-8 h-8" />
-                </div>
-                <h3 className="font-display font-bold text-2xl text-white">
-                  Strategy Request Confirmed!
-                </h3>
-                <p className="text-slate-300 text-sm max-w-sm mx-auto">
-                  Thank you, <strong className="text-white">{name}</strong>. Your engagement briefing for <span className="text-gold-400 font-semibold">{projectType}</span> has been received directly in Adzalan's priority inbox.
-                </p>
-                <div className="p-4 rounded-xl bg-obsidian-950 border border-white/5 font-mono text-xs text-slate-400 max-w-sm mx-auto">
-                  <span>📅 Next Step: Expect a calendar link sent to </span>
-                  <span className="text-emerald-400 font-semibold">{email}</span>
-                </div>
-                <button
-                  onClick={handleReset}
-                  className="mt-6 px-6 py-2.5 rounded-xl glass-pill text-xs font-mono text-slate-300 hover:text-white"
-                >
-                  Close & Return
-                </button>
               </div>
             )}
           </motion.div>

@@ -3,12 +3,12 @@ import { ThemeProvider } from './context/ThemeContext';
 import { AmbientBackground } from './components/layout/AmbientBackground';
 import { Navbar } from './components/layout/Navbar';
 import { Hero } from './components/sections/Hero';
-import { VenturesBento } from './components/sections/VenturesBento';
-import { TechEngine } from './components/sections/TechEngine';
-import { CaseStudies } from './components/sections/CaseStudies';
-import { RoiCalculator } from './components/sections/RoiCalculator';
-import { MilestonesTimeline } from './components/sections/MilestonesTimeline';
-import { TestimonialsMarquee } from './components/sections/TestimonialsMarquee';
+import { VirtualHQSection } from './components/sections/VirtualHQSection';
+import { ProductionShowcase } from './components/sections/ProductionShowcase';
+import { SaaSEcosystem } from './components/sections/SaaSEcosystem';
+import { ServicesSection } from './components/sections/ServicesSection';
+import { AboutSection } from './components/sections/AboutSection';
+import { ContactSection } from './components/sections/ContactSection';
 import { Footer } from './components/layout/Footer';
 import { AdvisoryModal } from './components/modals/AdvisoryModal';
 
@@ -24,47 +24,42 @@ function PortfolioApp() {
     setIsBookingOpen(true);
   };
 
-  const handleSelectScope = (name: string, price: number) => {
-    setPreselectedScope({ name, price });
-    setIsBookingOpen(true);
-  };
-
   return (
     <div className="relative min-h-screen bg-slate-50 dark:bg-obsidian-950 text-slate-900 dark:text-slate-100 font-sans selection:bg-amber-500 selection:text-white dark:selection:bg-gold-500 dark:selection:text-obsidian-950 antialiased overflow-x-hidden transition-colors duration-300">
       {/* Ambient Lighting & Mouse Spotlight Background */}
       <AmbientBackground />
 
-      {/* Navigation Bar with Theme Toggle */}
+      {/* Navigation Bar with Light/Dark/System Theme Toggle */}
       <Navbar onOpenBooking={handleOpenBooking} />
 
-      {/* Main Content Sections */}
+      {/* Main Content Sections mirroring adzalan.com with modern luxury theme */}
       <main className="relative z-10 flex flex-col">
-        {/* 1. Flagship Hero Section & Live Metrics */}
+        {/* 1. Flagship Hero: Engineering Digital Foundations */}
         <Hero onOpenBooking={handleOpenBooking} />
 
-        {/* 2. Flagship Ventures Bento Grid Showcase */}
-        <VenturesBento />
+        {/* 2. Live Platform Preview: The Virtual Headquarters (app.adzalan.com) */}
+        <VirtualHQSection />
 
-        {/* 3. The Solo Founder Tech & Growth Engine */}
-        <TechEngine />
+        {/* 3. Live Client Production Showcase: Umbi Kasih Retreat (umbikasih.com) */}
+        <ProductionShowcase />
 
-        {/* 4. Proven Case Studies & High-Impact Client Results */}
-        <CaseStudies />
+        {/* 4. Vertical SaaS: The Adzalan Core Ecosystem */}
+        <SaaSEcosystem />
 
-        {/* 5. Interactive Project Scope & ROI Estimator */}
-        <RoiCalculator onSelectScope={handleSelectScope} />
+        {/* 5. Consulting & Delivery: Custom Engineering & Solutions */}
+        <ServicesSection onOpenBooking={handleOpenBooking} />
 
-        {/* 6. Milestones & Proven Trajectory Timeline */}
-        <MilestonesTimeline />
+        {/* 6. About Me & Technical Skills (Adzalan Yanggang) */}
+        <AboutSection />
 
-        {/* 7. Infinite Testimonials & Social Proof Marquee */}
-        <TestimonialsMarquee />
+        {/* 7. Connect: Initiate a Conversation & Contact Form */}
+        <ContactSection />
       </main>
 
-      {/* High-Conversion Footer */}
+      {/* Clean Modern Footer */}
       <Footer onOpenBooking={handleOpenBooking} />
 
-      {/* Strategic Advisory / Scope Booking Modal */}
+      {/* Advisory & Inquiry Modal */}
       <AdvisoryModal
         isOpen={isBookingOpen}
         onClose={() => setIsBookingOpen(false)}
