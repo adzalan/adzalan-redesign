@@ -89,13 +89,13 @@ export const AdvisoryModal: React.FC<AdvisoryModalProps> = ({
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: "spring", stiffness: 350, damping: 25 }}
-            className="relative w-full max-w-xl rounded-2xl glass-panel p-6 sm:p-8 border border-gold-500/30 bg-obsidian-900 shadow-2xl z-10 my-8"
+            className="relative w-full max-w-xl rounded-2xl glass-panel p-6 sm:p-8 border border-amber-500/30 dark:border-gold-500/30 bg-white dark:bg-obsidian-900 shadow-2xl z-10 my-8"
           >
             {/* Close Button */}
             <button
               onClick={onClose}
               aria-label="Close Advisory Modal"
-              className="absolute top-5 right-5 p-2 rounded-xl text-slate-400 hover:text-white glass-pill transition-colors cursor-pointer"
+              className="absolute top-5 right-5 p-2 rounded-xl text-slate-500 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white glass-pill transition-colors cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
@@ -103,21 +103,21 @@ export const AdvisoryModal: React.FC<AdvisoryModalProps> = ({
             {!submitted ? (
               <>
                 <div className="mb-6">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-gold-500/10 text-gold-400 border border-gold-500/20 mb-2">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-amber-500/10 dark:bg-gold-500/10 text-amber-700 dark:text-gold-400 border border-amber-500/20 dark:border-gold-500/20 mb-2">
                     <Sparkles className="w-3.5 h-3.5" />
                     <span>Exclusive Strategic Partnership</span>
                   </div>
-                  <h3 className="font-display font-bold text-2xl sm:text-3xl text-white">
+                  <h3 className="font-display font-bold text-2xl sm:text-3xl text-slate-950 dark:text-white">
                     Book Founder Advisory
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-300 mt-1">
+                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1">
                     Reserve a direct 1-on-1 strategy session with Adzalan to evaluate architecture, scope your MVP, or map out an automated growth engine.
                   </p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
-                    <label className="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-1.5">
+                    <label className="block text-xs font-mono uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
                       Your Full Name *
                     </label>
                     <input
@@ -126,12 +126,12 @@ export const AdvisoryModal: React.FC<AdvisoryModalProps> = ({
                       placeholder="Elon Musk / Founder"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      className="w-full px-4 py-2.5 rounded-xl bg-obsidian-950/80 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-gold-500/80 transition-colors text-sm"
+                      className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-obsidian-950/80 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-amber-500 dark:focus:border-gold-500/80 transition-colors text-sm"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-1.5">
+                    <label className="block text-xs font-mono uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
                       Corporate / Work Email *
                     </label>
                     <input
@@ -140,19 +140,19 @@ export const AdvisoryModal: React.FC<AdvisoryModalProps> = ({
                       placeholder="founder@venture.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full px-4 py-2.5 rounded-xl bg-obsidian-950/80 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-gold-500/80 transition-colors text-sm"
+                      className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-obsidian-950/80 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-amber-500 dark:focus:border-gold-500/80 transition-colors text-sm"
                     />
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-1.5">
+                      <label className="block text-xs font-mono uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
                         Target Engagement
                       </label>
                       <select
                         value={projectType}
                         onChange={(e) => setProjectType(e.target.value)}
-                        className="w-full px-4 py-2.5 rounded-xl bg-obsidian-950/80 border border-white/10 text-white focus:outline-none focus:border-gold-500/80 transition-colors text-sm"
+                        className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-obsidian-950/80 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white focus:outline-none focus:border-amber-500 dark:focus:border-gold-500/80 transition-colors text-sm"
                       >
                         <option value="Full SaaS MVP Sprint">Full SaaS MVP Sprint</option>
                         <option value="$10,000 Flagship Web Rebrand">$10k Flagship Rebrand</option>
@@ -163,13 +163,13 @@ export const AdvisoryModal: React.FC<AdvisoryModalProps> = ({
                     </div>
 
                     <div>
-                      <label className="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-1.5">
+                      <label className="block text-xs font-mono uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
                         Planned Budget
                       </label>
                       <select
                         value={budget}
                         onChange={(e) => setBudget(e.target.value)}
-                        className="w-full px-4 py-2.5 rounded-xl bg-obsidian-950/80 border border-white/10 text-white focus:outline-none focus:border-gold-500/80 transition-colors text-sm"
+                        className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-obsidian-950/80 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white focus:outline-none focus:border-amber-500 dark:focus:border-gold-500/80 transition-colors text-sm"
                       >
                         <option value="$5,000 - $8,500">$5,000 - $8,500</option>
                         <option value="$8,500 - $15,000">$8,500 - $15,000</option>
@@ -180,7 +180,7 @@ export const AdvisoryModal: React.FC<AdvisoryModalProps> = ({
                   </div>
 
                   <div>
-                    <label className="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-1.5">
+                    <label className="block text-xs font-mono uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
                       Project Objective / Friction Point (Optional)
                     </label>
                     <textarea
@@ -188,7 +188,7 @@ export const AdvisoryModal: React.FC<AdvisoryModalProps> = ({
                       placeholder="Briefly describe what you're building, current bottlenecks, or desired timeline..."
                       value={notes}
                       onChange={(e) => setNotes(e.target.value)}
-                      className="w-full px-4 py-2.5 rounded-xl bg-obsidian-950/80 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-gold-500/80 transition-colors text-sm"
+                      className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-obsidian-950/80 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-amber-500 dark:focus:border-gold-500/80 transition-colors text-sm"
                     />
                   </div>
 

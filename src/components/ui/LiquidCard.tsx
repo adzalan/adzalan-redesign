@@ -13,7 +13,7 @@ export const LiquidCard: React.FC<LiquidCardProps> = ({
   children,
   className,
   tilt = false,
-  glowColor = "rgba(245, 158, 11, 0.15)",
+  glowColor,
   ...props
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -21,6 +21,8 @@ export const LiquidCard: React.FC<LiquidCardProps> = ({
   const [rotateY, setRotateY] = useState(0);
   const [spotlightPos, setSpotlightPos] = useState({ x: 0, y: 0, opacity: 0 });
   const prefersReducedMotion = useReducedMotion();
+
+  const effectiveGlow = glowColor || "var(--card-spotlight, rgba(245, 158, 11, 0.12))";
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
@@ -67,7 +69,7 @@ export const LiquidCard: React.FC<LiquidCardProps> = ({
         className="pointer-events-none absolute -inset-px transition-opacity duration-300 -z-10"
         style={{
           opacity: spotlightPos.opacity,
-          background: `radial-gradient(500px circle at ${spotlightPos.x}px ${spotlightPos.y}px, ${glowColor}, transparent 65%)`,
+          background: `radial-gradient(500px circle at ${spotlightPos.x}px ${spotlightPos.y}px, ${effectiveGlow}, transparent 65%)`,
         }}
       />
       {children}

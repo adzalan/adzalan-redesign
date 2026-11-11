@@ -48,11 +48,11 @@ export const MagneticButton: React.FC<MagneticButtonProps> = ({
     primary:
       "relative bg-gradient-to-r from-gold-500 via-amber-500 to-gold-600 text-obsidian-950 font-bold shadow-gold-glow hover:shadow-[0_0_35px_rgba(245,158,11,0.55)] border border-gold-400/30",
     secondary:
-      "bg-obsidian-850 text-slate-100 hover:text-white border border-slate-700/60 hover:border-gold-500/40 hover:bg-obsidian-800 shadow-glass-sm",
+      "bg-white dark:bg-obsidian-850 text-slate-800 dark:text-slate-100 hover:text-slate-950 dark:hover:text-white border border-slate-300/80 dark:border-slate-700/60 hover:border-amber-500/50 dark:hover:border-gold-500/40 hover:bg-slate-50 dark:hover:bg-obsidian-800 shadow-sm dark:shadow-glass-sm",
     glass:
-      "glass-pill text-slate-200 hover:text-white hover:border-white/30 hover:bg-white/[0.08] shadow-glass-sm",
+      "glass-pill text-slate-700 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white hover:border-black/20 dark:hover:border-white/30 hover:bg-black/[0.04] dark:hover:bg-white/[0.08] shadow-sm dark:shadow-glass-sm",
     ghost:
-      "bg-transparent text-slate-300 hover:text-white hover:bg-white/5",
+      "bg-transparent text-slate-600 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5",
   };
 
   return (

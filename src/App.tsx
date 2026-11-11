@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { ThemeProvider } from './context/ThemeContext';
 import { AmbientBackground } from './components/layout/AmbientBackground';
 import { Navbar } from './components/layout/Navbar';
 import { Hero } from './components/sections/Hero';
@@ -11,7 +12,7 @@ import { TestimonialsMarquee } from './components/sections/TestimonialsMarquee';
 import { Footer } from './components/layout/Footer';
 import { AdvisoryModal } from './components/modals/AdvisoryModal';
 
-export default function App() {
+function PortfolioApp() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [preselectedScope, setPreselectedScope] = useState<{
     name: string;
@@ -29,11 +30,11 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-obsidian-950 text-slate-100 font-sans selection:bg-gold-500 selection:text-obsidian-950 antialiased overflow-x-hidden">
+    <div className="relative min-h-screen bg-slate-50 dark:bg-obsidian-950 text-slate-900 dark:text-slate-100 font-sans selection:bg-amber-500 selection:text-white dark:selection:bg-gold-500 dark:selection:text-obsidian-950 antialiased overflow-x-hidden transition-colors duration-300">
       {/* Ambient Lighting & Mouse Spotlight Background */}
       <AmbientBackground />
 
-      {/* Navigation Bar */}
+      {/* Navigation Bar with Theme Toggle */}
       <Navbar onOpenBooking={handleOpenBooking} />
 
       {/* Main Content Sections */}
@@ -70,5 +71,13 @@ export default function App() {
         preselectedScope={preselectedScope}
       />
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <ThemeProvider>
+      <PortfolioApp />
+    </ThemeProvider>
   );
 }

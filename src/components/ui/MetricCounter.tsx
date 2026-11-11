@@ -60,14 +60,14 @@ export const MetricCounter: React.FC<MetricCounterProps> = ({
 
   return (
     <div ref={ref} className="flex flex-col">
-      <span className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl tracking-tight text-white group-hover:text-gold-400 transition-colors">
+      <span className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl tracking-tight text-slate-950 dark:text-white group-hover:text-amber-600 dark:group-hover:text-gold-400 transition-colors">
         {displayValue}
       </span>
-      <span className="text-xs sm:text-sm font-semibold text-slate-200 mt-1">
+      <span className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200 mt-1">
         {label}
       </span>
       {subtext && (
-        <span className="text-[11px] font-mono text-slate-400 mt-0.5">
+        <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400 mt-0.5">
           {subtext}
         </span>
       )}
