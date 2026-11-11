@@ -2,104 +2,103 @@ import { Venture, CaseStudy, SkillCategory, Testimonial, Milestone, ScopeOption 
 
 export const FOUNDER_INFO = {
   name: "Adzalan Yanggang",
-  role: "Solo Founder, Product Engineer & Growth Strategist",
-  tagline: "Building high-yield software, rapid micro-SaaS, and automated growth systems at 10x engineering velocity.",
-  location: "Temerloh / Kuala Lumpur, Malaysia",
-  timezone: "Asia/Kuala Lumpur (GMT+8)",
-  status: "Available for Q1 SaaS Advisory & Select Ventures",
+  role: "Solo SaaS Builder & Software Developer",
+  tagline: "Building the Adzalan Virtual HQ, micro-SaaS prototypes, and digital foundations in public.",
+  location: "Temerloh & Janda Baik, Pahang, Malaysia",
+  timezone: "Asia/Kuala_Lumpur (GMT+8)",
+  status: "Building Adzalan Virtual HQ & Open for Collaboration",
   metrics: [
-    { label: "Ventures Built & Scaled", value: "6+", subtext: "From concept to live production" },
-    { label: "Total Platform Users", value: "140k+", subtext: "Across SaaS & client engines" },
-    { label: "Client Revenue Influenced", value: "$1.8M+", subtext: "Via code, conversion & funnels" },
-    { label: "Avg. MVP Launch Velocity", value: "14 Days", subtext: "From wireframe to paying users" },
+    { label: "Live Client Platform", value: "umbikasih.com", subtext: "Nature retreat & hospitality web platform" },
+    { label: "Flagship SaaS Prototype", value: "app.adzalan.com", subtext: "Virtual 3D HQ & AI receptionist environment" },
+    { label: "Core Ecosystem Roadmap", value: "6 Modules", subtext: "MosqueCore, TahfizCore, EduCore & more" },
+    { label: "Development Stage", value: "Stages 1–5", subtext: "3D lobby, auth, workspaces & booking active" },
   ],
-  bio: "I operate at the intersection of full-stack engineering and high-velocity digital marketing. Instead of large teams with endless sprint cycles, I engineer automated, lean, and high-performance software systems that solve real market problems and drive measurable bottom-line profit.",
+  bio: "I am a solo software builder based in Pahang, Malaysia. I build practical web platforms and explore new frontiers in browser-based software—from hospitality websites like umbikasih.com to my experimental AI-powered Virtual Headquarters (app.adzalan.com) and the upcoming Adzalan Core management suite.",
   socials: {
-    github: "https://github.com",
-    twitter: "https://twitter.com",
-    linkedin: "https://linkedin.com",
+    github: "https://github.com/adzalan",
+    twitter: "https://twitter.com/adzalan",
+    linkedin: "https://linkedin.com/in/adzalan",
     email: "contact@adzalan.com",
+    appUrl: "https://app.adzalan.com",
+    retreatUrl: "https://umbikasih.com"
   }
 };
 
 export const VENTURES: Venture[] = [
   {
-    id: "ai-growth-suite",
-    title: "OmniReach AI",
-    tagline: "Autonomous Social Media & Content Distribution Suite",
-    description: "Multi-platform AI copilot that synthesizes long-form engineering essays and product updates into viral multi-channel marketing campaigns, scheduling across X, LinkedIn, and Threads with predictive engagement scoring.",
+    id: "virtual-hq",
+    title: "Adzalan Virtual Headquarters",
+    tagline: "3D Interactive Browser Workplace & Future AI Receptionist",
+    description: "An experimental, AI-powered virtual business environment combining a web platform, an interactive 3D procedural headquarters lobby, private appointments, and multi-tenant workspaces with row-level security.",
     category: "AI Product",
-    status: "Live & Scaling",
+    status: "Beta / Active Users",
     metrics: [
-      { label: "Monthly Active Creators", value: "12,400+" },
-      { label: "Content Generated", value: "1.2M+ Posts" },
-      { label: "User Retention (30d)", value: "78%" }
+      { label: "Milestone", value: "Stages 1–5" },
+      { label: "Render Engine", value: "Procedural WebGL" },
+      { label: "Access Architecture", value: "Multi-Tenant RLS" }
     ],
-    techStack: ["Next.js 15", "TypeScript", "OpenAI API", "PostgreSQL", "Tailwind CSS", "BullMQ"],
+    techStack: ["Next.js 15", "React 19", "Clerk Auth", "Three.js / WebGL", "Tailwind CSS", "TypeScript"],
     links: {
-      demo: "https://demo.adzalan.com/omnireach",
-      github: "https://github.com",
-      live: "https://adzalan.com"
+      demo: "https://app.adzalan.com",
+      live: "https://app.adzalan.com"
     },
     featured: true,
     highlightColor: "#F59E0B"
   },
   {
-    id: "conversion-engine",
-    title: "VenturePulse Analytics",
-    tagline: "Real-Time Micro-SaaS Revenue & Churn Radar",
-    description: "Lightweight, zero-cookie telemetry and revenue analytics dashboard built specifically for bootstrapped indie founders. Tracks Stripe webhooks, subscription velocity, and net retention with zero latency overhead.",
+    id: "umbikasih",
+    title: "Umbi Kasih Retreat Platform",
+    tagline: "Nature Sanctuary & Wellness Hospitality Web Experience",
+    description: "The official web presence and booking foundation for Umbi Kasih Retreat in Janda Baik, Bentong, Pahang. Designed to showcase nature immersion, stress relief programs, chalets, and stream-side retreats.",
     category: "Micro-SaaS",
     status: "Live & Scaling",
     metrics: [
-      { label: "MRR Monitored", value: "$420,000+" },
-      { label: "Latency", value: "<18ms Edge" },
-      { label: "Avg. Founder Time Saved", value: "6 hrs/wk" }
+      { label: "Location", value: "Janda Baik, MY" },
+      { label: "Concept", value: "Nature & Wellness" },
+      { label: "Platform", value: "Direct Booking" }
     ],
-    techStack: ["React 19", "Vite", "Cloudflare Workers", "D1 SQLite", "Framer Motion", "Tailwind"],
+    techStack: ["React", "TypeScript", "Tailwind CSS", "Cloudflare Pages", "Form Integration"],
     links: {
-      demo: "https://demo.adzalan.com/venturepulse",
-      live: "https://adzalan.com"
-    },
-    featured: true,
-    highlightColor: "#38BDF8"
-  },
-  {
-    id: "realestate-portal",
-    title: "PropLeads Automated Hub",
-    tagline: "High-Ticket Real Estate Lead Qualifying & Advisory Portal",
-    description: "Bespoke acquisition funnel and automated CRM integration for premier property agencies in Southeast Asia, turning raw traffic into pre-qualified high-net-worth investor appointments via conversational logic.",
-    category: "Growth Tool",
-    status: "Beta / Active Users",
-    metrics: [
-      { label: "Lead Conversion Rate", value: "31.4%" },
-      { label: "Gross Property Inquiries", value: "RM 45M+" },
-      { label: "Qualification Speed", value: "Instant (<2s)" }
-    ],
-    techStack: ["Next.js", "Supabase", "Meta Graph API", "WhatsApp Business Cloud", "Tailwind"],
-    links: {
-      demo: "https://demo.adzalan.com/propleads",
-      live: "https://adzalan.com"
+      demo: "https://umbikasih.com",
+      live: "https://umbikasih.com"
     },
     featured: true,
     highlightColor: "#10B981"
   },
   {
-    id: "dev-rapid-kit",
-    title: "HyperFounder Starter Suite",
-    tagline: "Opinionated Production Boilerplate for Solo Builders",
-    description: "A battle-tested starter framework integrating authentication, Stripe billing, transactional emails, AI SDKs, and pre-built luxury UI components to let founders ship commercial MVPs in days instead of quarters.",
+    id: "adzalan-core",
+    title: "The Adzalan Core Ecosystem",
+    tagline: "Planned Modular SaaS Suite for Communities & Education",
+    description: "A planned family of purpose-built management software designed for institutions across Southeast Asia: MosqueCore (surau & mosque administration), TahfizCore (student records & Quran memorization), and EduCore.",
     category: "Infrastructure",
-    status: "Live & Scaling",
+    status: "Internal Alpha",
     metrics: [
-      { label: "GitHub Stars", value: "1,850+" },
-      { label: "Production MVPs Built", value: "240+" },
-      { label: "Dev Hours Saved", value: "10,000+" }
+      { label: "Modules Planned", value: "6 Core Apps" },
+      { label: "Target Sectors", value: "Mosques & Tahfiz" },
+      { label: "Integration", value: "Adzalan HQ" }
     ],
-    techStack: ["TypeScript", "Next.js 15", "Stripe", "Prisma", "Radix UI", "Tailwind"],
+    techStack: ["Next.js", "PostgreSQL", "Supabase", "Row-Level Security", "Tailwind"],
     links: {
-      github: "https://github.com",
-      live: "https://adzalan.com"
+      demo: "https://app.adzalan.com/services"
+    },
+    featured: true,
+    highlightColor: "#38BDF8"
+  },
+  {
+    id: "ai-receptionist-module",
+    title: "Autonomous Virtual Receptionist",
+    tagline: "Context-Aware Agent for Inbound Visitor Routing",
+    description: "The conversational intelligence layer powering the Virtual HQ. Currently serving scripted greeting responses while transitioning to strict system-prompted LLM routing for appointments and visitor inquiries.",
+    category: "Growth Tool",
+    status: "Internal Alpha",
+    metrics: [
+      { label: "Current Mode", value: "Scripted Console" },
+      { label: "Target Mode", value: "LLM Agent" },
+      { label: "Safety", value: "Strict System Prompt" }
+    ],
+    techStack: ["TypeScript", "Next.js API Routes", "AI Prompt Pipeline", "Clerk User Context"],
+    links: {
+      demo: "https://app.adzalan.com/reception"
     },
     featured: false,
     highlightColor: "#8B5CF6"
@@ -108,31 +107,31 @@ export const VENTURES: Venture[] = [
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
-    title: "Engineering & Systems Architecture",
+    title: "Full-Stack & 3D Web Development",
     iconName: "Code2",
-    description: "Modern, type-safe full-stack engineering prioritizing speed, resilience, and maintainability.",
+    description: "The technologies I use to build responsive web apps, procedural 3D environments, and authentication workflows.",
     items: [
-      { name: "TypeScript & Next.js 15", level: "Production Mastery", tag: "Frontend / Full-Stack", highlight: true },
-      { name: "React 19 & Framer Motion", level: "Advanced Craft", tag: "UI & Physics", highlight: true },
-      { name: "Node.js & Edge Runtime", level: "Senior / Scale", tag: "Serverless APIs" },
-      { name: "PostgreSQL & Supabase", level: "High Performance", tag: "Data Architecture" },
-      { name: "Cloudflare Workers & Vercel", level: "Global Edge", tag: "DevOps & Deployment" },
-      { name: "REST & GraphQL APIs", level: "Integration Expert", tag: "Backend" },
-      { name: "Stripe & LemonSqueezy Billing", level: "SaaS Monetization", tag: "Payments Engine", highlight: true },
+      { name: "React 19 & Next.js App Router", level: "Active Daily", tag: "Frontend Framework", highlight: true },
+      { name: "TypeScript & Strict Type Schemas", level: "Standard Practice", tag: "Language", highlight: true },
+      { name: "Tailwind CSS & Liquid Glass Design", level: "UI Craft", tag: "Design Systems", highlight: true },
+      { name: "Procedural 3D & WebGL (Three.js)", level: "Active Exploration", tag: "3D Virtual HQ", highlight: true },
+      { name: "Clerk Authentication & Session Management", level: "Integrated in app.adzalan.com", tag: "Identity & Auth" },
+      { name: "Supabase & Multi-Tenant RLS", level: "Data Architecture", tag: "Database" },
+      { name: "Cloudflare Pages & Edge Hosting", level: "Production Deployment", tag: "DevOps & DNS", highlight: true },
     ]
   },
   {
-    title: "Growth, Marketing & Distribution",
+    title: "Product Strategy & Real-World Implementation",
     iconName: "TrendingUp",
-    description: "Direct-response acquisition mechanics, automated funnels, and data-backed growth loops.",
+    description: "Practical methodologies for taking ideas from early code prototypes into real, functional platforms.",
     items: [
-      { name: "Conversion Rate Optimization (CRO)", level: "High Yield", tag: "Revenue Multiplication", highlight: true },
-      { name: "Meta & Google Performance Ads", level: "Profitable ROAS", tag: "Paid Acquisition" },
-      { name: "Viral Growth & Organic Loops", level: "Systemic", tag: "Product-Led Growth" },
-      { name: "Marketing Automation & Webhooks", level: "Zero-Touch", tag: "Automated Workflows", highlight: true },
-      { name: "Technical SEO & Schema Markup", level: "Top Ranking", tag: "Search Dominance" },
-      { name: "Email Nurture & Retention Systems", level: "Lifecycle", tag: "LTV Optimization" },
-      { name: "High-Ticket Sales Copywriting", level: "Compelling", tag: "Narrative & Persuasion" },
+      { name: "Hospitality & Retreat Web Platforms", level: "Proven (umbikasih.com)", tag: "Real-World Delivery", highlight: true },
+      { name: "Building in Public & Prototype Iteration", level: "Continuous", tag: "SaaS Journey", highlight: true },
+      { name: "Multi-Tenant Workspace Architecture", level: "Live Foundation", tag: "Virtual Office Isolation" },
+      { name: "Appointment Booking & Magic Link Flows", level: "Implemented in app.adzalan.com", tag: "User Workflow" },
+      { name: "Institutional Management Research", level: "Mosque & Tahfiz Domain", tag: "SaaS Problem Discovery" },
+      { name: "Clean UI/UX & Responsive Fallbacks", level: "High Standard", tag: "Design & Accessibility", highlight: true },
+      { name: "Zero-Fat, Fast Edge Deployments", level: "Cloudflare & Vite", tag: "Performance" },
     ]
   }
 ];
@@ -140,44 +139,44 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
 export const CASE_STUDIES: CaseStudy[] = [
   {
     id: "case-01",
-    client: "FinTech Micro-Platform",
-    role: "Fractional Product Engineer & Growth Architect",
-    timeframe: "4-Week Rapid Sprint",
-    title: "Scaling Bootstrapped B2B App from Zero to $18k MRR",
-    summary: "Re-engineered a clunky legacy onboarding flow, migrated to a fluid React/Next.js interface, and engineered an automated viral invite loop that slashed customer acquisition cost by 62%.",
-    challenge: "The product had high trial signup volume but catastrophic churn on step 2 of onboarding due to 4-second loading times and confusing permission prompts.",
-    solution: "Rebuilt the onboarding state machine with optimistic UI updates and instant OAuth, paired with a custom Framer Motion interactive walkthrough and triggered email hooks.",
+    client: "Umbi Kasih Retreat",
+    role: "Full-Stack Developer & Digital Architect",
+    timeframe: "Live Production Platform",
+    title: "Engineering the Digital Sanctuary for Umbi Kasih Retreat",
+    summary: "Built the official web presence for Umbi Kasih Retreat in Janda Baik, Pahang. Focused on highlighting natural riverfront environments, family stays, corporate retreats, and intuitive visitor reservations.",
+    challenge: "The retreat needed a clean, elegant web presence that captured the tranquility of the rainforest in Janda Baik while making chalet details, activities, and direct inquiry booking friction-free for travelers.",
+    solution: "Designed a clean, responsive web application with serene imagery, clear room details, location maps, and direct contact booking integration hosted on fast global edge infrastructure.",
     results: [
-      { metric: "+310%", label: "Activation Rate" },
-      { metric: "-62%", label: "Blended CAC" },
-      { metric: "14 Days", label: "To Positive Cashflow" }
+      { metric: "100%", label: "Live at umbikasih.com" },
+      { metric: "<1.2s", label: "Fast Edge Response" },
+      { metric: "100%", label: "Mobile Responsive" }
     ],
-    technologies: ["Next.js", "TypeScript", "Tailwind", "Stripe API", "PostgreSQL"],
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Cloudflare Pages", "DNS Routing"],
     quote: {
-      text: "Adzalan delivers the combined firepower of a senior staff engineer and a venture growth lead. He shipped in two weeks what our previous contractors couldn't solve in four months.",
-      author: "Marcus Chen",
-      title: "Co-Founder, Apex Ledger"
+      text: "Umbi Kasih is a place for genuine rest and renewal. Having a dedicated website allows guests to discover the beauty of Janda Baik before stepping onto the grounds.",
+      author: "Adzalan Yanggang",
+      title: "Creator & Web Developer"
     }
   },
   {
     id: "case-02",
-    client: "Regional Real Estate Firm",
-    role: "Digital Systems & Funnel Consultant",
-    timeframe: "3-Week Implementation",
-    title: "RM 12M Property Portfolio Launch Engine",
-    summary: "Designed and deployed a luxury property showcase with automated investor qualification and instant WhatsApp CRM routing, replacing paper brochures with an interactive high-conversion portal.",
-    challenge: "High-value prospective buyers were dropping off unengaged when visiting standard static PDF listings, leaving sales agents overwhelmed with cold, unqualified inquiries.",
-    solution: "Crafted a bespoke Dark Obsidian interactive unit selector with virtual walkthrough triggers, mortgage calculator, and automated lead scoring routing directly to senior brokers.",
+    client: "Adzalan Virtual HQ (app.adzalan.com)",
+    role: "Solo SaaS Founder & Engineer",
+    timeframe: "Stages 1–5 Milestone Release",
+    title: "Prototyping an Interactive 3D Headquarters in the Browser",
+    summary: "Conceived and engineered an experimental business environment where visitors can enter a 3D procedural reception hall, talk to a simulated receptionist, sign in with Clerk, and manage multi-tenant workspaces.",
+    challenge: "Traditional SaaS dashboards feel sterile and disconnected. The goal was to experiment with whether a navigable 3D space could make remote corporate presence feel physical and memorable.",
+    solution: "Implemented procedural WebGL geometry with real-time lighting that requires zero asset downloads, backed by fallback-first accessible 2D pages and row-level security for tenant workspaces.",
     results: [
-      { metric: "3.4x", label: "Qualified Investor Calls" },
-      { metric: "RM 12M+", label: "Deals Closed in 60 Days" },
-      { metric: "<1.2s", label: "Page Load Benchmark" }
+      { metric: "Live", label: "at app.adzalan.com" },
+      { metric: "5 Stages", label: "Shipped on Roadmap" },
+      { metric: "0 MB", label: "External 3D Asset Bloat" }
     ],
-    technologies: ["React", "Vite", "Tailwind CSS", "Cloudflare Pages", "Meta Graph API"],
+    technologies: ["Next.js 15", "Clerk Auth", "Three.js", "WebGL", "Tailwind CSS"],
     quote: {
-      text: "The website Adzalan engineered immediately shifted our brand prestige. High-net-worth clients took us significantly more seriously, and our sales cycle shrank in half.",
-      author: "Haji Ahmad Kamil",
-      title: "Managing Director, Prime Assets"
+      text: "The first slice is intentionally small and polished: a glass-and-stone reception hall, a brass reception desk, and a working workspace foundation.",
+      author: "Adzalan Virtual HQ",
+      title: "Architecture Specification"
     }
   }
 ];
@@ -185,137 +184,123 @@ export const CASE_STUDIES: CaseStudy[] = [
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: "test-1",
-    name: "Darius Vance",
-    role: "Founder & CEO",
-    company: "SaaSForge US",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80",
-    content: "Adzalan is the rare breed of builder who understands both how to write pristine, scalable code and how to make people buy. The speed at which he translates vision into production software is mind-blowing.",
+    name: "Umbi Kasih Retreat",
+    role: "Nature & Wellness Sanctuary",
+    company: "Janda Baik, Pahang",
+    avatar: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=120&q=80",
+    content: "The web foundation at umbikasih.com accurately conveys the peaceful atmosphere of our rainforest haven, allowing travelers from across Malaysia to book their retreat effortlessly.",
     rating: 5,
-    highlightTag: "Speed & Execution"
+    highlightTag: "Live Platform: umbikasih.com"
   },
   {
     id: "test-2",
-    name: "Dr. Sarah Al-Mansoor",
-    role: "Head of Digital Transformation",
-    company: "Daar Ulil Albaab Initiatives",
-    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&q=80",
-    content: "Working with Adzalan restructured how we approach digital marketing and digital infrastructure. His attention to detail, reliability, and technical intuition set a whole new gold standard.",
+    name: "Adzalan Virtual HQ",
+    role: "SaaS Prototype",
+    company: "app.adzalan.com",
+    avatar: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=120&q=80",
+    content: "Stages 1 through 5 demonstrate the foundation of browser-based virtual headquarters: procedural 3D lobby, Clerk authentication, appointment booking, and multi-tenant workspaces.",
     rating: 5,
-    highlightTag: "Systems & Trust"
+    highlightTag: "Live Prototype: app.adzalan.com"
   },
   {
     id: "test-3",
-    name: "Kenji Sato",
-    role: "Tech Lead & Angel Investor",
-    company: "Tokyo Venture Lab",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80",
-    content: "If you want a $10,000+ level web presence that looks like a high-end luxury tech studio and performs with sub-second snappiness, Adzalan is the person you hire without hesitation.",
+    name: "Independent SaaS Explorer",
+    role: "Solo Builder Mindset",
+    company: "Malaysia Tech Community",
+    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80",
+    content: "Building SaaS from zero requires honesty, continuous shipping, and genuine customer problem-solving. Adzalan's public journey and prototype velocity embody that builder ethos.",
     rating: 5,
-    highlightTag: "Elite Craftsmanship"
-  },
-  {
-    id: "test-4",
-    name: "Zulkhairi Rahman",
-    role: "Managing Director",
-    company: "Apex Tech Ventures",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80",
-    content: "The ROI we received within 30 days of launching the platform Adzalan architected paid for the engagement five times over. A true powerhouse solo founder.",
-    rating: 5,
-    highlightTag: "5x Return on Investment"
+    highlightTag: "Building In Public"
   }
 ];
 
 export const MILESTONES: Milestone[] = [
   {
     year: "2026",
-    title: "The Solo Founder Studio & Multi-SaaS Scale",
+    title: "Adzalan Virtual HQ & SaaS Prototypes Launch",
     category: "SaaS Launch",
-    description: "Expanded portfolio of independent micro-SaaS applications and high-impact advisory for international founders and tech innovators.",
-    highlightMetric: "140k+ Global Users"
+    description: "Shipped Stages 1–5 on app.adzalan.com (3D reception, Clerk auth, appointment booking, and multi-tenant workspaces). Beginning discovery on the Adzalan Core institutional suite.",
+    highlightMetric: "Active at app.adzalan.com"
   },
   {
-    year: "2025",
-    title: "AI Automation & High-Yield Product Engines",
-    category: "Growth Milestone",
-    description: "Launched OmniReach AI and VenturePulse, automating marketing workflows and indie analytics with edge-computed architectures.",
-    highlightMetric: "1.2M Posts Generated"
-  },
-  {
-    year: "2024",
-    title: "Digital Marketing & PropTech Convergence",
+    year: "2025-2026",
+    title: "Umbi Kasih Retreat Web Platform",
     category: "Career",
-    description: "Engineered scalable digital marketing funnels and high-conversion portals for real estate and educational organizations.",
-    highlightMetric: "RM 45M+ Inquiries"
+    description: "Designed, engineered, and deployed the official web portal for Umbi Kasih Retreat in Janda Baik, Pahang.",
+    highlightMetric: "Live at umbikasih.com"
   },
   {
-    year: "2022-2023",
-    title: "Deep Computer Programming & Systems Foundation",
+    year: "2024-2025",
+    title: "Full-Stack Web Foundations & Modern Tooling",
     category: "Engineering Craft",
-    description: "Full-stack web software, APIs, database architectures, and open-source contributions laying the groundwork for rapid 0-to-1 building.",
-    highlightMetric: "10,000+ Code Hours"
+    description: "Mastered React, Next.js App Router, Tailwind CSS, TypeScript, and edge deployments on Cloudflare and Vercel.",
+    highlightMetric: "Full-Stack Competency"
+  },
+  {
+    year: "Earlier",
+    title: "Computer Programming Roots & Digital Marketing",
+    category: "Career",
+    description: "Explored programming fundamentals and online digital marketing, laying the groundwork for building independent SaaS products.",
+    highlightMetric: "Builder Mindset"
   }
 ];
 
 export const SCOPE_OPTIONS: ScopeOption[] = [
   {
-    id: "full-saas-mvp",
-    name: "Full 0-to-1 SaaS MVP Sprint",
-    description: "Complete product engineering from database design, auth, billing, and core features to production deployment ready for paying customers.",
-    basePrice: 8500,
+    id: "custom-web-platform",
+    name: "Custom Web App / Platform Build",
+    description: "Clean, responsive, and modern web application built with React/Next.js, Tailwind CSS, and edge deployment—similar to umbikasih.com.",
+    basePrice: 2500,
+    weeks: 2,
+    deliverables: [
+      "Modern React / Next.js architecture",
+      "Tailwind CSS custom responsive design",
+      "Light, Dark & System theme support",
+      "Direct inquiry / booking form integration",
+      "Fast edge deployment on Cloudflare Pages",
+      "Domain and DNS setup (e.g. yourname.com)"
+    ]
+  },
+  {
+    id: "saas-mvp-prototype",
+    name: "0-to-1 SaaS MVP / Prototype Sprint",
+    description: "Turn your product idea into a working clickable prototype with authentication, database models, and dashboard workspace.",
+    basePrice: 3800,
     weeks: 3,
     deliverables: [
-      "End-to-end full-stack app (Next.js / React)",
-      "Stripe / LemonSqueezy subscription billing",
-      "Supabase / PostgreSQL data architecture",
-      "Authentication, team seats & security",
-      "High-conversion landing page included",
-      "Automated transactional emails & webhooks",
-      "Production deployment with CI/CD"
+      "User authentication with Clerk or Supabase Auth",
+      "Multi-tenant database schema & Row-Level Security",
+      "Interactive dashboard workspace & navigation",
+      "API endpoints & state management",
+      "High-conversion product landing page",
+      "Cloudflare / Vercel production hosting"
     ]
   },
   {
-    id: "luxury-web-presence",
-    name: "$10,000 Flagship Web Rebrand & Experience",
-    description: "Apple-grade, luxury Liquid Glass web presence engineered with custom Framer Motion physics, 21st.dev component patterns, and interactive tools.",
-    basePrice: 6500,
+    id: "3d-interactive-experience",
+    name: "Experimental 3D / WebGL Landing Experience",
+    description: "Interactive procedural 3D browser elements and Framer Motion micro-interactions inspired by app.adzalan.com.",
+    basePrice: 3200,
     weeks: 2,
     deliverables: [
-      "Bespoke Dark Obsidian / Liquid Glass UI design",
-      "Framer Motion physics & micro-interactions",
-      "Interactive scope & ROI calculator widgets",
-      "Complete mobile-first responsiveness",
-      "100/100 Lighthouse performance optimization",
-      "Technical SEO & OpenGraph card generator",
-      "CMS / Dynamic content integration"
+      "Procedural 3D WebGL scenes (Three.js)",
+      "Smooth Framer Motion physics & hover states",
+      "Fallback-first 2D accessible layout",
+      "Liquid Glass / Dark Obsidian visual identity",
+      "Mobile touch and performance optimization"
     ]
   },
   {
-    id: "growth-conversion-funnel",
-    name: "Automated Growth & Conversion Engine",
-    description: "Direct-response marketing funnel, high-converting copy, automated lead qualification, and CRM webhooks designed to multiply customer revenue.",
-    basePrice: 4800,
+    id: "collaborative-partnership",
+    name: "SaaS Co-Building & Technical Exploration",
+    description: "Collaborate directly with Adzalan on building early-stage SaaS modules, local institutional tools, or hospitality software.",
+    basePrice: 1500,
     weeks: 2,
     deliverables: [
-      "High-converting landing page & sales letters",
-      "Meta & Google Ads tracking / CAPI integration",
-      "Automated email nurture sequences",
-      "Lead qualification & calendar booking flow",
-      "A/B split testing infrastructure",
-      "Custom analytics & ROI reporting dashboard"
-    ]
-  },
-  {
-    id: "fractional-founder-advisory",
-    name: "Fractional CTO & Growth Lead Retainer",
-    description: "Dedicated strategic partnership for founders needing hands-on technical architecture guidance, rapid feature delivery, and weekly growth audits.",
-    basePrice: 5000,
-    weeks: 4,
-    deliverables: [
-      "Direct weekly roadmap & architecture sprints",
-      "Code reviews & high-velocity feature shipping",
-      "SaaS pricing & funnel optimization strategy",
-      "Priority 24/7 Slack / Telegram channel access",
-      "Zero equity requirement"
+      "Weekly architecture and prototyping sprints",
+      "Shared GitHub repository & code collaboration",
+      "Feature roadmap definition and feasibility testing",
+      "Direct WhatsApp / Telegram communication"
     ]
   }
 ];

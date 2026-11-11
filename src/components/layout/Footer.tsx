@@ -5,7 +5,8 @@ import {
   ArrowUpRight, 
   Sparkles, 
   Mail, 
-  Clock 
+  Clock, 
+  ExternalLink
 } from 'lucide-react';
 import { GithubIcon, TwitterXIcon, LinkedinIcon } from '../ui/Icons';
 import { FOUNDER_INFO } from '../../data/portfolioData';
@@ -36,26 +37,27 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking }) => {
             <div className="max-w-2xl">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-amber-500/10 dark:bg-gold-500/10 text-amber-700 dark:text-gold-400 border border-amber-500/20 dark:border-gold-500/20 mb-3">
                 <Sparkles className="w-3.5 h-3.5" />
-                <span>Next-Generation Solo Founder Architecture</span>
+                <span>Building SaaS & Web Foundations in Public</span>
               </span>
               <h2 className="font-display font-extrabold text-3xl sm:text-5xl text-slate-950 dark:text-white tracking-tight leading-tight">
-                Let's turn your vision into a <span className="text-gradient-gold">live, profitable platform</span>.
+                Let's connect, collaborate, or <span className="text-gradient-gold">build together</span>.
               </h2>
               <p className="mt-4 text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
-                Whether you need a full-scale 0-to-1 SaaS MVP, an executive $10,000 web rebrand, or an automated high-yield acquisition funnel, I engineer it end-to-end.
+                Explore the interactive 3D Virtual Headquarters at <strong className="text-slate-900 dark:text-white">app.adzalan.com</strong>, check out <strong className="text-slate-900 dark:text-white">umbikasih.com</strong>, or send a message to explore new web ideas.
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row items-center gap-4 w-full lg:w-auto">
-              <MagneticButton
-                variant="primary"
-                size="lg"
-                onClick={onOpenBooking}
-                className="w-full sm:w-auto flex items-center justify-center gap-2"
-              >
-                <span>Book Advisory Session</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </MagneticButton>
+              <a href="https://app.adzalan.com" target="_blank" rel="noreferrer" className="w-full sm:w-auto">
+                <MagneticButton
+                  variant="primary"
+                  size="lg"
+                  className="w-full sm:w-auto flex items-center justify-center gap-2"
+                >
+                  <span>Launch app.adzalan.com</span>
+                  <ExternalLink className="w-4 h-4" />
+                </MagneticButton>
+              </a>
 
               <button
                 onClick={handleCopyEmail}
@@ -90,7 +92,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking }) => {
               </span>
             </div>
             <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm max-w-sm leading-relaxed">
-              Solo Founder, Product Engineer & Digital Growth Strategist based in Temerloh & Kuala Lumpur, Malaysia. Building venture-grade micro-SaaS and autonomous systems.
+              Solo software builder & developer based in Temerloh & Janda Baik, Pahang, Malaysia. Creator of umbikasih.com and prototyping the Adzalan Virtual HQ at app.adzalan.com.
             </p>
             <div className="mt-4 flex items-center gap-2 text-xs font-mono text-slate-500 dark:text-slate-400">
               <Clock className="w-3.5 h-3.5 text-amber-600 dark:text-gold-400" />
@@ -101,14 +103,24 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking }) => {
           {/* Quick Links */}
           <div className="md:col-span-3">
             <h4 className="text-xs font-mono uppercase tracking-wider text-slate-800 dark:text-slate-300 font-semibold mb-3">
-              Navigation
+              Projects & Portals
             </h4>
             <ul className="space-y-2 text-xs text-slate-600 dark:text-slate-400">
-              <li><a href="#ventures" className="hover:text-amber-600 dark:hover:text-gold-400 transition-colors">Ventures & Micro-SaaS</a></li>
-              <li><a href="#tech-engine" className="hover:text-amber-600 dark:hover:text-gold-400 transition-colors">Tech & Growth Engine</a></li>
-              <li><a href="#case-studies" className="hover:text-amber-600 dark:hover:text-gold-400 transition-colors">Client Case Studies</a></li>
-              <li><a href="#calculator" className="hover:text-amber-600 dark:hover:text-gold-400 transition-colors">ROI & Scope Calculator</a></li>
-              <li><a href="#track-record" className="hover:text-amber-600 dark:hover:text-gold-400 transition-colors">Founder Track Record</a></li>
+              <li>
+                <a href="https://app.adzalan.com" target="_blank" rel="noreferrer" className="hover:text-amber-600 dark:hover:text-gold-400 transition-colors flex items-center gap-1">
+                  <span>app.adzalan.com (Virtual HQ)</span>
+                  <ExternalLink className="w-3 h-3 opacity-60" />
+                </a>
+              </li>
+              <li>
+                <a href="https://umbikasih.com" target="_blank" rel="noreferrer" className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1">
+                  <span>umbikasih.com (Retreat)</span>
+                  <ExternalLink className="w-3 h-3 opacity-60" />
+                </a>
+              </li>
+              <li><a href="#ventures" className="hover:text-amber-600 dark:hover:text-gold-400 transition-colors">SaaS Prototypes & Roadmap</a></li>
+              <li><a href="#tech-engine" className="hover:text-amber-600 dark:hover:text-gold-400 transition-colors">Developer Stack & 3D WebGL</a></li>
+              <li><a href="#calculator" className="hover:text-amber-600 dark:hover:text-gold-400 transition-colors">Project Scope Estimator</a></li>
             </ul>
           </div>
 
@@ -161,9 +173,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking }) => {
 
         {/* Bottom Credits */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-500 dark:text-slate-400">
-          <p>© {new Date().getFullYear()} Adzalan Yanggang. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Adzalan Yanggang. Built with honest craft in Malaysia.</p>
           <p className="flex items-center gap-1.5">
-            <span>Engineered with React 19, Framer Motion & 21st UI UX Pro Max</span>
+            <span>Powered by React 19, Framer Motion & 21st UI UX Pro Max</span>
           </p>
         </div>
       </div>

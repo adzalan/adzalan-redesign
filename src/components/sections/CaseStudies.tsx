@@ -26,13 +26,13 @@ export const CaseStudies: React.FC = () => {
         <div>
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-xs font-mono text-amber-700 dark:text-gold-400 mb-4">
             <Briefcase className="w-3.5 h-3.5" />
-            <span>Proven Business Impact & Case Studies</span>
+            <span>Real-World Delivery & SaaS Architecture</span>
           </div>
           <h2 className="font-display font-extrabold text-3xl sm:text-5xl tracking-tight text-slate-950 dark:text-white">
-            Real outcomes, <span className="text-gradient-gold">backed by math</span>.
+            Genuine work, <span className="text-gradient-gold">proven in production</span>.
           </h2>
           <p className="mt-4 text-slate-600 dark:text-slate-300 text-sm sm:text-base max-w-xl font-normal">
-            No vanity designs or hypothetical concepts. Here is how code and strategy directly generated enterprise value and investor cashflow.
+            A breakdown of my real-world client delivery for umbikasih.com and the engineering architecture behind the 3D Virtual Headquarters at app.adzalan.com.
           </p>
         </div>
 
@@ -48,7 +48,7 @@ export const CaseStudies: React.FC = () => {
                   : 'text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5'
               }`}
             >
-              Case 0{idx + 1}: {c.client.split(' ')[0]}
+              {idx === 0 ? "umbikasih.com" : "app.adzalan.com"}
             </button>
           ))}
         </div>
@@ -134,7 +134,7 @@ export const CaseStudies: React.FC = () => {
             <div className="flex items-center gap-2 pb-4 border-b border-black/10 dark:border-white/10 mb-6">
               <TrendingUp className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
               <h4 className="font-display font-bold text-lg text-slate-900 dark:text-white">
-                Verified Quantitative ROI
+                Production Metrics & Status
               </h4>
             </div>
 

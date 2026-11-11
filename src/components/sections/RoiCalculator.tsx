@@ -1,15 +1,10 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { 
   Calculator, 
   Sparkles, 
   Check, 
   ArrowRight, 
   Clock, 
-  DollarSign, 
-  Calendar,
-  Layers,
-  HelpCircle,
   ShieldCheck
 } from 'lucide-react';
 import { SCOPE_OPTIONS } from '../../data/portfolioData';
@@ -22,39 +17,36 @@ interface RoiCalculatorProps {
 
 export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onSelectScope }) => {
   const [selectedScopeId, setSelectedScopeId] = useState<string>(SCOPE_OPTIONS[0].id);
-  const [includeRushSprint, setIncludeRushSprint] = useState<boolean>(false);
-  const [includeAiAgent, setIncludeAiAgent] = useState<boolean>(true);
-  const [includeCrmAutomation, setIncludeCrmAutomation] = useState<boolean>(false);
+  const [includeAuth, setIncludeAuth] = useState<boolean>(true);
+  const [include3D, setInclude3D] = useState<boolean>(false);
+  const [includeEdge, setIncludeEdge] = useState<boolean>(true);
 
   const activeScope = SCOPE_OPTIONS.find(s => s.id === selectedScopeId) || SCOPE_OPTIONS[0];
 
-  // Calculate pricing
-  const rushFee = includeRushSprint ? 1800 : 0;
-  const aiFee = includeAiAgent ? 1200 : 0;
-  const crmFee = includeCrmAutomation ? 950 : 0;
-  const totalPrice = activeScope.basePrice + rushFee + aiFee + crmFee;
+  // Calculate realistic pricing
+  const authFee = includeAuth ? 750 : 0;
+  const threeDFee = include3D ? 950 : 0;
+  const edgeFee = includeEdge ? 350 : 0;
+  const totalPrice = activeScope.basePrice + authFee + threeDFee + edgeFee;
 
-  const estimatedWeeks = Math.max(
-    1,
-    includeRushSprint ? Math.ceil(activeScope.weeks * 0.6) : activeScope.weeks
-  );
+  const estimatedWeeks = activeScope.weeks;
 
   return (
     <section id="calculator" className="relative py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Background radial accent */}
-      <div className="absolute top-1/3 right-10 w-[500px] h-[500px] bg-gold-600/5 blur-[150px] pointer-events-none -z-10" />
+      <div className="absolute top-1/3 right-10 w-[500px] h-[500px] bg-amber-500/5 dark:bg-gold-600/5 blur-[150px] pointer-events-none -z-10" />
 
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-16">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-xs font-mono text-amber-700 dark:text-gold-400 mb-4">
           <Calculator className="w-3.5 h-3.5" />
-          <span>Transparent Scope & Investment</span>
+          <span>Transparent Project Estimation</span>
         </div>
         <h2 className="font-display font-extrabold text-3xl sm:text-5xl tracking-tight text-slate-950 dark:text-white">
-          Interactive <span className="text-gradient-gold">Project Scope & ROI</span> Estimator
+          Interactive <span className="text-gradient-gold">Project Scope & Build</span> Estimator
         </h2>
         <p className="mt-4 text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
-          Select your desired objective to configure deliverables, estimated completion timeline, and fixed transparent investment. No hidden retainers or surprises.
+          Planning a new web platform like <strong className="text-emerald-600 dark:text-emerald-400">umbikasih.com</strong> or an interactive SaaS prototype like <strong className="text-amber-700 dark:text-gold-400">app.adzalan.com</strong>? Configure your requirements below for transparent timeline and investment estimates.
         </p>
       </div>
 
@@ -64,7 +56,7 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onSelectScope }) =
           {/* Main Scope Radio Cards */}
           <div className="space-y-3">
             <label className="text-xs font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
-              1. Select Primary Engagement Scope:
+              1. Select Project Type:
             </label>
             {SCOPE_OPTIONS.map((opt) => {
               const isSelected = opt.id === selectedScopeId;
@@ -100,7 +92,7 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onSelectScope }) =
                         ${opt.basePrice.toLocaleString()}
                       </span>
                       <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400">
-                        {opt.weeks} Weeks Sprint
+                        ~{opt.weeks} Weeks Sprint
                       </span>
                     </div>
                   </div>
@@ -112,64 +104,64 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onSelectScope }) =
           {/* Add-On Modifiers */}
           <div className="mt-4 space-y-3">
             <label className="text-xs font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
-              2. Optional High-Leverage Add-Ons:
+              2. Technical Add-Ons:
             </label>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              {/* Rush Sprint */}
+              {/* Clerk / Auth */}
               <div
-                onClick={() => setIncludeRushSprint(!includeRushSprint)}
+                onClick={() => setIncludeAuth(!includeAuth)}
                 className={`p-4 rounded-xl glass-panel cursor-pointer border transition-all ${
-                  includeRushSprint ? 'border-amber-500/60 dark:border-gold-500/60 bg-amber-500/10 dark:bg-gold-500/10' : 'border-black/10 dark:border-white/10'
+                  includeAuth ? 'border-amber-500/60 dark:border-gold-500/60 bg-amber-500/10 dark:bg-gold-500/10' : 'border-black/10 dark:border-white/10'
                 }`}
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-slate-900 dark:text-white">Rush Sprint (-40% Time)</span>
+                  <span className="text-xs font-bold text-slate-900 dark:text-white">Clerk / Multi-Tenant Auth</span>
                   <input
                     type="checkbox"
-                    checked={includeRushSprint}
+                    checked={includeAuth}
                     onChange={() => {}}
                     className="accent-gold-500 cursor-pointer"
                   />
                 </div>
-                <span className="text-xs font-mono text-amber-700 dark:text-gold-400 block mt-2">+$1,800</span>
+                <span className="text-xs font-mono text-amber-700 dark:text-gold-400 block mt-2">+$750</span>
               </div>
 
-              {/* AI Agent Engine */}
+              {/* 3D WebGL Scene */}
               <div
-                onClick={() => setIncludeAiAgent(!includeAiAgent)}
+                onClick={() => setInclude3D(!include3D)}
                 className={`p-4 rounded-xl glass-panel cursor-pointer border transition-all ${
-                  includeAiAgent ? 'border-amber-500/60 dark:border-gold-500/60 bg-amber-500/10 dark:bg-gold-500/10' : 'border-black/10 dark:border-white/10'
+                  include3D ? 'border-amber-500/60 dark:border-gold-500/60 bg-amber-500/10 dark:bg-gold-500/10' : 'border-black/10 dark:border-white/10'
                 }`}
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-slate-900 dark:text-white">AI Copilot Integration</span>
+                  <span className="text-xs font-bold text-slate-900 dark:text-white">Procedural 3D Lobby</span>
                   <input
                     type="checkbox"
-                    checked={includeAiAgent}
-                    onChange={() => {}}
-                    className="accent-gold-500 cursor-pointer"
-                  />
-                </div>
-                <span className="text-xs font-mono text-amber-700 dark:text-gold-400 block mt-2">+$1,200</span>
-              </div>
-
-              {/* CRM Automation */}
-              <div
-                onClick={() => setIncludeCrmAutomation(!includeCrmAutomation)}
-                className={`p-4 rounded-xl glass-panel cursor-pointer border transition-all ${
-                  includeCrmAutomation ? 'border-amber-500/60 dark:border-gold-500/60 bg-amber-500/10 dark:bg-gold-500/10' : 'border-black/10 dark:border-white/10'
-                }`}
-              >
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-slate-900 dark:text-white">WhatsApp & CRM Webhooks</span>
-                  <input
-                    type="checkbox"
-                    checked={includeCrmAutomation}
+                    checked={include3D}
                     onChange={() => {}}
                     className="accent-gold-500 cursor-pointer"
                   />
                 </div>
                 <span className="text-xs font-mono text-amber-700 dark:text-gold-400 block mt-2">+$950</span>
+              </div>
+
+              {/* Edge Deployment */}
+              <div
+                onClick={() => setIncludeEdge(!includeEdge)}
+                className={`p-4 rounded-xl glass-panel cursor-pointer border transition-all ${
+                  includeEdge ? 'border-amber-500/60 dark:border-gold-500/60 bg-amber-500/10 dark:bg-gold-500/10' : 'border-black/10 dark:border-white/10'
+                }`}
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold text-slate-900 dark:text-white">Cloudflare Edge & Custom DNS</span>
+                  <input
+                    type="checkbox"
+                    checked={includeEdge}
+                    onChange={() => {}}
+                    className="accent-gold-500 cursor-pointer"
+                  />
+                </div>
+                <span className="text-xs font-mono text-amber-700 dark:text-gold-400 block mt-2">+$350</span>
               </div>
             </div>
           </div>
@@ -182,17 +174,17 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onSelectScope }) =
               <div className="flex items-center gap-2">
                 <Sparkles className="w-4 h-4 text-amber-600 dark:text-gold-400" />
                 <h3 className="font-display font-bold text-lg text-slate-900 dark:text-white">
-                  Live Project Proposal
+                  Estimated Build Scope
                 </h3>
               </div>
               <span className="text-[10px] font-mono uppercase bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 px-2 py-0.5 rounded border border-emerald-500/20">
-                Guaranteed Launch
+                Direct Collaboration
               </span>
             </div>
 
             {/* Total Price Hero */}
             <div className="mb-6">
-              <span className="text-xs font-mono text-slate-500 dark:text-slate-400 block">Total Fixed Investment</span>
+              <span className="text-xs font-mono text-slate-500 dark:text-slate-400 block">Estimated Project Investment</span>
               <div className="flex items-baseline gap-2 mt-1">
                 <span className="font-display font-extrabold text-4xl sm:text-5xl text-gradient-gold">
                   ${totalPrice.toLocaleString()}
@@ -205,17 +197,17 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onSelectScope }) =
             <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-obsidian-950/70 border border-black/5 dark:border-white/5 flex items-center justify-between mb-6">
               <div className="flex items-center gap-2">
                 <Clock className="w-4 h-4 text-sky-600 dark:text-cyan-400" />
-                <span className="text-xs text-slate-700 dark:text-slate-300 font-mono">Estimated Delivery:</span>
+                <span className="text-xs text-slate-700 dark:text-slate-300 font-mono">Estimated Sprint Duration:</span>
               </div>
               <span className="font-display font-bold text-sm text-slate-900 dark:text-white">
-                ~{estimatedWeeks} Weeks {includeRushSprint && "(Accelerated)"}
+                ~{estimatedWeeks} Weeks
               </span>
             </div>
 
             {/* Deliverables Checklist */}
             <div className="mb-8">
               <span className="text-xs font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wider block mb-3">
-                Included Deliverables:
+                Deliverables Included:
               </span>
               <ul className="space-y-2 text-xs text-slate-700 dark:text-slate-300">
                 {activeScope.deliverables.map((deliv, idx) => (
@@ -224,22 +216,22 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onSelectScope }) =
                     <span>{deliv}</span>
                   </li>
                 ))}
-                {includeRushSprint && (
+                {includeAuth && (
                   <li className="flex items-start gap-2 text-amber-700 dark:text-gold-300">
                     <Check className="w-3.5 h-3.5 text-amber-600 dark:text-gold-400 mt-0.5 flex-shrink-0" />
-                    <span>Priority sprint scheduling with dedicated focus</span>
+                    <span>Clerk / multi-tenant auth with protected routes</span>
                   </li>
                 )}
-                {includeAiAgent && (
+                {include3D && (
                   <li className="flex items-start gap-2 text-sky-700 dark:text-cyan-300">
                     <Check className="w-3.5 h-3.5 text-sky-600 dark:text-cyan-400 mt-0.5 flex-shrink-0" />
-                    <span>Custom LLM prompt pipeline & streaming responses</span>
+                    <span>Procedural 3D WebGL scene with real-time lighting</span>
                   </li>
                 )}
-                {includeCrmAutomation && (
+                {includeEdge && (
                   <li className="flex items-start gap-2 text-emerald-700 dark:text-emerald-300">
                     <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 mt-0.5 flex-shrink-0" />
-                    <span>Real-time WhatsApp & automated lead notification pipeline</span>
+                    <span>Cloudflare Pages edge deployment & custom domain routing</span>
                   </li>
                 )}
               </ul>
@@ -252,13 +244,13 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onSelectScope }) =
               onClick={() => onSelectScope(activeScope.name, totalPrice)}
               className="w-full flex items-center justify-center gap-2 py-4"
             >
-              <span>Lock in Scope & Reserve Slot</span>
+              <span>Connect & Discuss Scope</span>
               <ArrowRight className="w-4 h-4 ml-1" />
             </MagneticButton>
 
             <p className="text-center text-[11px] font-mono text-slate-500 mt-4 flex items-center justify-center gap-1.5">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
-              <span>Strict 100% money-back guarantee if scope not met</span>
+              <span>Transparent, milestone-based code delivery</span>
             </p>
           </LiquidCard>
         </div>

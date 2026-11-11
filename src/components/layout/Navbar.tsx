@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowUpRight, Sparkles, Terminal } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Sparkles, Terminal, ExternalLink } from 'lucide-react';
 import { StatusPill } from '../ui/StatusPill';
 import { MagneticButton } from '../ui/MagneticButton';
 import { ThemeToggle } from '../ui/ThemeToggle';
@@ -23,11 +23,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
   }, []);
 
   const navLinks = [
-    { name: "Ventures", href: "#ventures" },
-    { name: "Tech Engine", href: "#tech-engine" },
-    { name: "Case Studies", href: "#case-studies" },
-    { name: "ROI Calculator", href: "#calculator" },
-    { name: "Track Record", href: "#track-record" },
+    { name: "SaaS Prototypes", href: "#ventures" },
+    { name: "Stack & 3D", href: "#tech-engine" },
+    { name: "Live Delivery", href: "#case-studies" },
+    { name: "Estimator", href: "#calculator" },
+    { name: "Journey", href: "#track-record" },
   ];
 
   return (
@@ -44,16 +44,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
         <a href="#" className="flex items-center gap-3 group focus:outline-none">
           <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500/20 to-slate-200 dark:from-gold-500/20 dark:to-obsidian-800 border border-amber-500/40 dark:border-gold-500/30 group-hover:border-gold-400 group-hover:shadow-[0_0_15px_rgba(245,158,11,0.4)] transition-all duration-300">
             <span className="font-display font-bold text-lg text-amber-600 dark:text-gold-400 group-hover:scale-105 transition-transform">
-              A
+              AZ
             </span>
             <div className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-gold-400/80 animate-pulse" />
           </div>
           <div className="flex flex-col">
             <span className="font-display font-bold text-sm tracking-wide text-slate-900 dark:text-white group-hover:text-gold-500 dark:group-hover:text-gold-400 transition-colors">
-              Adzalan Yanggang
+              ADZALAN
             </span>
             <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400 tracking-wider uppercase">
-              Solo Founder & Engineer
+              Solo SaaS Builder
             </span>
           </div>
         </a>
@@ -69,12 +69,21 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
               {link.name}
             </a>
           ))}
+          <a
+            href="https://app.adzalan.com"
+            target="_blank"
+            rel="noreferrer"
+            className="px-3 py-1.5 text-xs lg:text-sm text-amber-700 dark:text-gold-400 hover:text-amber-800 dark:hover:text-gold-300 rounded-full hover:bg-amber-500/10 transition-colors font-semibold tracking-wide flex items-center gap-1"
+          >
+            <span>app.adzalan.com</span>
+            <ExternalLink className="w-3 h-3 opacity-70" />
+          </a>
         </nav>
 
         {/* Right CTA, Theme Toggle & Status */}
         <div className="hidden lg:flex items-center gap-3">
           <ThemeToggle />
-          <StatusPill statusText="🟢 Q1 Advisory Open" />
+          <StatusPill statusText="🟢 Stages 1–5 Active" />
           <MagneticButton
             variant="primary"
             size="sm"
@@ -82,7 +91,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
             className="flex items-center gap-1.5"
           >
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Book Strategy</span>
+            <span>Connect</span>
             <ArrowUpRight className="w-3.5 h-3.5 opacity-80" />
           </MagneticButton>
         </div>
@@ -111,10 +120,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
             className="md:hidden mt-2 mx-auto max-w-lg rounded-2xl glass-panel p-6 shadow-2xl border border-black/10 dark:border-white/10 bg-white/95 dark:bg-obsidian-900/95"
           >
             <div className="mb-4 pb-4 border-b border-black/10 dark:border-white/10 flex items-center justify-between">
-              <StatusPill statusText="🟢 Available for Q1 Ventures" />
+              <StatusPill statusText="🟢 Stages 1–5 Live" />
               <div className="flex items-center gap-1 text-[11px] font-mono text-slate-500 dark:text-slate-400">
                 <Terminal className="w-3.5 h-3.5 text-gold-500 dark:text-gold-400" />
-                <span>GMT+8</span>
+                <span>Pahang (GMT+8)</span>
               </div>
             </div>
 
@@ -130,6 +139,24 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
                   <ArrowUpRight className="w-4 h-4 text-slate-400 dark:text-slate-500" />
                 </a>
               ))}
+              <a
+                href="https://app.adzalan.com"
+                target="_blank"
+                rel="noreferrer"
+                className="px-4 py-3 rounded-xl text-amber-700 dark:text-gold-400 hover:bg-amber-500/10 transition-colors text-sm font-semibold flex items-center justify-between"
+              >
+                <span>Launch app.adzalan.com (Virtual HQ)</span>
+                <ExternalLink className="w-4 h-4" />
+              </a>
+              <a
+                href="https://umbikasih.com"
+                target="_blank"
+                rel="noreferrer"
+                className="px-4 py-3 rounded-xl text-emerald-700 dark:text-emerald-400 hover:bg-emerald-500/10 transition-colors text-sm font-semibold flex items-center justify-between"
+              >
+                <span>Visit umbikasih.com (Retreat)</span>
+                <ExternalLink className="w-4 h-4" />
+              </a>
             </nav>
 
             <div className="mt-6 pt-4 border-t border-black/10 dark:border-white/10">
@@ -141,7 +168,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
                 className="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-gold-500 to-amber-600 text-obsidian-950 font-bold text-sm tracking-wide shadow-gold-glow flex items-center justify-center gap-2 cursor-pointer"
               >
                 <Sparkles className="w-4 h-4" />
-                <span>Book Strategic Advisory Call</span>
+                <span>Get in Touch / Discuss Project</span>
               </button>
             </div>
           </motion.div>

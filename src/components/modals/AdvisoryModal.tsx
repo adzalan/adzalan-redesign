@@ -105,25 +105,25 @@ export const AdvisoryModal: React.FC<AdvisoryModalProps> = ({
                 <div className="mb-6">
                   <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-amber-500/10 dark:bg-gold-500/10 text-amber-700 dark:text-gold-400 border border-amber-500/20 dark:border-gold-500/20 mb-2">
                     <Sparkles className="w-3.5 h-3.5" />
-                    <span>Exclusive Strategic Partnership</span>
+                    <span>Direct Builder Connection</span>
                   </div>
                   <h3 className="font-display font-bold text-2xl sm:text-3xl text-slate-950 dark:text-white">
-                    Book Founder Advisory
+                    Connect with Adzalan
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1">
-                    Reserve a direct 1-on-1 strategy session with Adzalan to evaluate architecture, scope your MVP, or map out an automated growth engine.
+                    Have a project in mind, want to explore the 3D Virtual HQ, or collaborate on a new SaaS tool? Send a note directly below.
                   </p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
                     <label className="block text-xs font-mono uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
-                      Your Full Name *
+                      Your Name *
                     </label>
                     <input
                       type="text"
                       required
-                      placeholder="Elon Musk / Founder"
+                      placeholder="Your name"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-obsidian-950/80 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-amber-500 dark:focus:border-gold-500/80 transition-colors text-sm"
@@ -132,12 +132,12 @@ export const AdvisoryModal: React.FC<AdvisoryModalProps> = ({
 
                   <div>
                     <label className="block text-xs font-mono uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
-                      Corporate / Work Email *
+                      Your Email *
                     </label>
                     <input
                       type="email"
                       required
-                      placeholder="founder@venture.com"
+                      placeholder="you@domain.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-obsidian-950/80 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-amber-500 dark:focus:border-gold-500/80 transition-colors text-sm"
@@ -147,45 +147,45 @@ export const AdvisoryModal: React.FC<AdvisoryModalProps> = ({
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-mono uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
-                        Target Engagement
+                        Topic of Interest
                       </label>
                       <select
                         value={projectType}
                         onChange={(e) => setProjectType(e.target.value)}
                         className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-obsidian-950/80 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white focus:outline-none focus:border-amber-500 dark:focus:border-gold-500/80 transition-colors text-sm"
                       >
-                        <option value="Full SaaS MVP Sprint">Full SaaS MVP Sprint</option>
-                        <option value="$10,000 Flagship Web Rebrand">$10k Flagship Rebrand</option>
-                        <option value="Automated Growth Funnel">Automated Growth Funnel</option>
-                        <option value="Fractional CTO Retainer">Fractional CTO Retainer</option>
-                        <option value="Custom Strategic Advisory">Custom Advisory</option>
+                        <option value="Custom Web Platform (like umbikasih.com)">Web Platform (like umbikasih.com)</option>
+                        <option value="SaaS Prototype Sprint (like app.adzalan.com)">SaaS Prototype (like app.adzalan.com)</option>
+                        <option value="Experimental 3D Web Experience">3D Web Experience</option>
+                        <option value="SaaS Co-Building & Collaboration">SaaS Co-Building</option>
+                        <option value="General Conversation">General Conversation</option>
                       </select>
                     </div>
 
                     <div>
                       <label className="block text-xs font-mono uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
-                        Planned Budget
+                        Expected Scope / Budget
                       </label>
                       <select
                         value={budget}
                         onChange={(e) => setBudget(e.target.value)}
                         className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-obsidian-950/80 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white focus:outline-none focus:border-amber-500 dark:focus:border-gold-500/80 transition-colors text-sm"
                       >
-                        <option value="$5,000 - $8,500">$5,000 - $8,500</option>
-                        <option value="$8,500 - $15,000">$8,500 - $15,000</option>
-                        <option value="$15,000+ Enterprise">$15,000+ Enterprise</option>
-                        <option value="Flexible / Valuation Based">Flexible / Valuation Based</option>
+                        <option value="Under $2,000">Under $2,000</option>
+                        <option value="$2,000 - $3,500">$2,000 - $3,500</option>
+                        <option value="$3,500 - $5,000">$3,500 - $5,000</option>
+                        <option value="Exploring & Collaborating">Exploring & Collaborating</option>
                       </select>
                     </div>
                   </div>
 
                   <div>
                     <label className="block text-xs font-mono uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
-                      Project Objective / Friction Point (Optional)
+                      Your Message or Idea (Optional)
                     </label>
                     <textarea
                       rows={3}
-                      placeholder="Briefly describe what you're building, current bottlenecks, or desired timeline..."
+                      placeholder="Tell me what you're working on or what you'd like to build..."
                       value={notes}
                       onChange={(e) => setNotes(e.target.value)}
                       className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-obsidian-950/80 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-amber-500 dark:focus:border-gold-500/80 transition-colors text-sm"
@@ -198,16 +198,16 @@ export const AdvisoryModal: React.FC<AdvisoryModalProps> = ({
                       className="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-gold-500 via-amber-500 to-gold-600 text-obsidian-950 font-bold text-sm tracking-wide shadow-gold-glow hover:shadow-[0_0_30px_rgba(245,158,11,0.5)] transition-all cursor-pointer flex items-center justify-center gap-2"
                     >
                       <Send className="w-4 h-4" />
-                      <span>Submit Priority Advisory Request</span>
+                      <span>Send Direct Message</span>
                     </button>
                   </div>
 
-                  <div className="flex items-center justify-between text-[11px] font-mono text-slate-400 pt-1">
+                  <div className="flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-slate-400 pt-1">
                     <span className="flex items-center gap-1">
-                      <Lock className="w-3 h-3 text-gold-400" />
-                      <span>100% Confidential NDA</span>
+                      <Lock className="w-3 h-3 text-amber-600 dark:text-gold-400" />
+                      <span>Direct to Adzalan</span>
                     </span>
-                    <span>Response within 12 Hours</span>
+                    <span>Usually replies within 24 hours</span>
                   </div>
                 </form>
               </>
